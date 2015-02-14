@@ -7,8 +7,8 @@
 )](https://developer.apple.com/swift)
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
-[![Issues](https://img.shields.io/github/issues/nghialv/MaterialKit.svg?style=flat
-)](https://github.com/nghialv/MaterialKit/issues?state=open)
+[![Issues](https://img.shields.io/github/issues/MHaroonBaig/MotionKit.svg?style=flat
+)](https://github.com/MHaroonBaig/MotionKit/issues?state=open)
 
 A nice and clean wrapper for the **CoreMotion Framework**. The Core Motion framework lets your application receive motion data from device hardware and process that data.
 The data can be retrieved from **Accelerometer**, **Gyroscope** and **Magnetometer**.
