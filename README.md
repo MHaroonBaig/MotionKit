@@ -14,7 +14,7 @@ The data can be retrieved from **Accelerometer**, **Gyroscope** and **Magnetomet
 You can also get the *composited gyroscope and accelerometer data* from the **deviceMotion** datatype itself instead of using raw Gyroscope or Accelerometer.
 
 #How does it work
-You can retrieve all the values either by a trailing closure or by a delegate method. Both the methods are fully supported.
+You can retrieve all the values either by a trailing closure or by a delegate method. Both the approaches are fully supported.
 
 ##Getting Accelerometer Values
 You can get the accelerometer values using just a few lines of code.
@@ -78,7 +78,7 @@ Get the composited Accelerometer and Gyroscope values from the Device Motion.
 ```
 ##Installation
 Just copy **MotionKit.swift** file into your Xcode project, and you're ready to go.
-MotionKit would soon be available from CocoaPods and Carthage.
+MotionKit would soon be available through CocoaPods and Carthage.
 
 ##Precautions
 For performance issues, it is suggested that you should use only one instance of CMMotionManager throughout the app. Make sure to stop receiving updates from the sensors as soon as you get your work done.
