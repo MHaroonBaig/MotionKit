@@ -70,7 +70,7 @@ You can get the DeviceMotion values just by typing
 Just copy **MotionKit.swift** file into your Xcode project, and you're ready to go.
 MotionKit would soon be available from CocoaPods and Carthage.
 
-##Precaution:
+##Precautions
 For performance issues, it is suggested that you should use only one instance of CMMotionManager throughout the app. Make sure to stop receiving updates from the sensors as soon as you get your work done.
 You can do this in MotionKit like this.
 ```swift
@@ -89,3 +89,6 @@ You can do this in MotionKit like this.
 #TODO
 - [ ] Add More Methods
 - [ ] Adding Background Functionality
+
+#License
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
