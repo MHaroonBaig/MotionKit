@@ -21,3 +21,48 @@ You can get the accelerometer values just by typing
     }
 
 ```
+##Getting Gyroscope Values
+You can get the Gyroscope values just by typing
+
+```
+    var motionKit = MotionKit()
+
+    motionKit.getGyroValue(interval: 1.0){
+
+        (x:Double, y:Double, z:Double) in
+        // Do whatever you want with the x, y and z values
+        println("X: \(x) Y: \(y) Z \(z)")
+      }
+    }
+
+```
+##Getting Magnetometer Values
+You can get the Magnetometer values just by typing
+
+```
+    var motionKit = MotionKit()
+
+    motionKit.getMagnetometerValue(interval: 1.0){
+
+        (x:Double, y:Double, z:Double) in
+        // Do whatever you want with the x, y and z values
+        println("X: \(x) Y: \(y) Z \(z)")
+      }
+    }
+
+```
+##Getting DeviceMotion Values
+You can get the DeviceMotion values just by typing
+
+```
+    var motionKit = MotionKit()
+
+    motionKit.getDeviceMotionValue(interval: 1.0){
+
+        (x:Double, y:Double, z:Double) in
+        // Do whatever you want with the x, y and z values
+        println("X: \(x) Y: \(y) Z \(z)")
+      }
+    }
+
+```
