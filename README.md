@@ -15,7 +15,7 @@ You can get the accelerometer values just by typing
     motionKit.getAccelerometerValue(interval: 1.0){
         (x:Double, y:Double, z:Double) in
         println("X: \(x) Y: \(y) Z \(z)")
+        }
     }
-}
 
 ```
