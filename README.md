@@ -9,7 +9,7 @@ You can retrieve all the values either by a trailing closure or by a delegate me
 ##Getting Accelerometer Values
 You can get the accelerometer values just by typing
 
-```
+```swift
     var motionKit = MotionKit()
 
     motionKit.getAccelerometerValues(interval: 1.0){
