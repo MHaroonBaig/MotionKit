@@ -10,10 +10,12 @@ You can retrieve all the values either by a trailing closure or by a delegate me
 You can get the accelerometer values just by typing
 
 ```
-var motionKit = MotionKit()
-motionKit.getAccelerometerValue(interval: 1.0){
-            (x:Double, y:Double, z:Double) in
-            println("X: \(x) Y: \(y) Z \(z)")
+    var motionKit = MotionKit()
 
-        }
-'''
+    motionKit.getAccelerometerValue(interval: 1.0){
+        (x:Double, y:Double, z:Double) in
+        println("X: \(x) Y: \(y) Z \(z)")
+    }
+}
+
+```
