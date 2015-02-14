@@ -84,7 +84,7 @@ You can do this in MotionKit like this.
 ```
 
 ##Delegates
-Incase you dont want to use the trailing closures, we've got you covered. MotionKit supports the following Delegate methods to retrieve the sensor values.
+In case if you dont want to use the trailing closures, we've got you covered. MotionKit supports the following Delegate methods to retrieve the sensor values.
 ```swift
     func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
     func retrieveGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
