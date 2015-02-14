@@ -116,7 +116,14 @@ And in the ViewDidLoad method, you simply have to add this.
       }
 
 ```
+Having that done, you'd probably implement a delegate method like this.
+```swift
+    func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double){
+      //Do whatever you want with the x, y and z values. The absolute value is calculated through vector mathematics
+      ......
+  }
 
+```
 
 #Requirements
 * iOS 7.0+
