@@ -82,6 +82,32 @@ You can do this in MotionKit like this.
     motionKit.stopmagnetometerUpdates()
 
 ```
+
+##Delegates
+Incase you dont want to use the trailing closures, we've got you covered. MotionKit supports the following Delegate methods to retrieve the sensor values.
+```swift
+    func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
+    func retrieveGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
+    func retrieveDeviceMotionValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
+    func retrieveMagnetometerValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
+```
+To use the above delegate methods, you have to add the MotionKit delegate to your ViewController.
+```swift
+    class ViewController: UIViewController, MotionKitDelegate {
+      ...
+    }
+```
+And in the ViewDidLoad method, you simply have to add this.
+```swift
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        motionKit.delegate = self
+        ......
+      }
+
+```
+
+
 #Requirements
 * iOS 7.0+
 * Xcode 6.1
