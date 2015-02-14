@@ -9,14 +9,13 @@
 import UIKit
 
 
-class ViewController: UIViewController, MotionKitDelegate {
+class ViewController: UIViewController {
     
     var motionKit = MotionKit()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        motionKit.delegate = self
-       
+        
         motionKit.getAccelerometerValues(interval: 1.0){
             (x:Double, y:Double, z:Double) in
             println("X: \(x) Y: \(y) Z \(z)")
