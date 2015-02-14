@@ -12,7 +12,7 @@ You can get the accelerometer values just by typing
 ```
     var motionKit = MotionKit()
 
-    motionKit.getAccelerometerValue(interval: 1.0){
+    motionKit.getAccelerometerValues(interval: 1.0){
 
         (x:Double, y:Double, z:Double) in
         // Do whatever you want with the x, y and z values
@@ -27,7 +27,7 @@ You can get the Gyroscope values just by typing
 ```
     var motionKit = MotionKit()
 
-    motionKit.getGyroValue(interval: 1.0){
+    motionKit.getGyroValues(interval: 1.0){
 
         (x:Double, y:Double, z:Double) in
         // Do whatever you want with the x, y and z values
@@ -42,7 +42,7 @@ You can get the Magnetometer values just by typing
 ```
     var motionKit = MotionKit()
 
-    motionKit.getMagnetometerValue(interval: 1.0){
+    motionKit.getMagnetometerValues(interval: 1.0){
 
         (x:Double, y:Double, z:Double) in
         // Do whatever you want with the x, y and z values
@@ -57,7 +57,7 @@ You can get the DeviceMotion values just by typing
 ```
     var motionKit = MotionKit()
 
-    motionKit.getDeviceMotionValue(interval: 1.0){
+    motionKit.getDeviceMotionValues(interval: 1.0){
 
         (x:Double, y:Double, z:Double) in
         // Do whatever you want with the x, y and z values
@@ -66,3 +66,6 @@ You can get the DeviceMotion values just by typing
     }
 
 ```
+##Installation
+Just copy **MotionKit.swift** file into your Xcode project, and you're ready to go.
+MotionKit would soon be available from CocoaPods and Carthage.

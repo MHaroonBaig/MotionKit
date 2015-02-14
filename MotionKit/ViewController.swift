@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        motionKit.getAccelerometerValue(interval: 1.0){
+        motionKit.getAccelerometerValues(interval: 1.0){
             (x:Double, y:Double, z:Double) in
             println("X: \(x) Y: \(y) Z \(z)")
         

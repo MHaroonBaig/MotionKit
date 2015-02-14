@@ -11,10 +11,10 @@ import CoreMotion
 
 
 @objc protocol MotionKitDelegate {
-    optional func getAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
-    optional func getGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
-    optional func getDeviceMotionValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
-    optional func getMagnetometerValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
+    optional func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
+    optional func retrieveGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
+    optional func retrieveDeviceMotionValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
+    optional func retrieveMagnetometerValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
 }
 
 
@@ -28,7 +28,7 @@ class MotionKit {
     }
     
     // Mark :- Start taking readings from accelerometer
-    func getAccelerometerValue (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z: Double) -> ())? ){
+    func getAccelerometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z: Double) -> ())? ){
         
         var valX: Double!
         var valY: Double!
@@ -49,13 +49,13 @@ class MotionKit {
                 }
                 
                 var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                self.delegate?.getAccelerometerValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                self.delegate?.retrieveAccelerometerValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
         }
     }
     
     // MARK :- Start taking updates from Gyro
-    func getGyroValue (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z:Double) -> ())? ) {
+    func getGyroValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z:Double) -> ())? ) {
         if manager.gyroAvailable{
             println("Yes Gyro is available")
             manager.gyroUpdateInterval = interval
@@ -70,13 +70,13 @@ class MotionKit {
                 }
                 
                 var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                self.delegate?.getGyroscopeValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                self.delegate?.retrieveGyroscopeValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
         }
     }
     
     // MARK :- Start taking values for Device Motion
-    func getDeviceMotionValue (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double) -> ())? ) {
+    func getDeviceMotionValues (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double) -> ())? ) {
         if manager.deviceMotionAvailable{
             println("Device Motion is available")
             manager.deviceMotionUpdateInterval = interval
@@ -91,13 +91,13 @@ class MotionKit {
                 }
                 
                 var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                self.delegate?.getDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                self.delegate?.retrieveDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
         }
     }
     
     // MARK :- Start taking Magnetometer values
-    func getMagnetometerValue (interval: NSTimeInterval = 0.1, values: ((x: Double, y:Double, z:Double) -> ())? ){
+    func getMagnetometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y:Double, z:Double) -> ())? ){
         if manager.magnetometerAvailable {
             println("Magnetometer is available")
             manager.magnetometerUpdateInterval = interval
@@ -112,7 +112,7 @@ class MotionKit {
                 }
                 
                 var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                self.delegate?.getMagnetometerValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                self.delegate?.retrieveMagnetometerValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
         }
     }
