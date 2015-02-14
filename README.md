@@ -24,7 +24,7 @@ You can get the accelerometer values just by typing
 ##Getting Gyroscope Values
 You can get the Gyroscope values just by typing
 
-```
+```swift
     var motionKit = MotionKit()
 
     motionKit.getGyroValues(interval: 1.0){
@@ -39,7 +39,7 @@ You can get the Gyroscope values just by typing
 ##Getting Magnetometer Values
 You can get the Magnetometer values just by typing
 
-```
+```swift
     var motionKit = MotionKit()
 
     motionKit.getMagnetometerValues(interval: 1.0){
@@ -54,7 +54,7 @@ You can get the Magnetometer values just by typing
 ##Getting DeviceMotion Values
 You can get the DeviceMotion values just by typing
 
-```
+```swift
     var motionKit = MotionKit()
 
     motionKit.getDeviceMotionValues(interval: 1.0){
@@ -69,3 +69,16 @@ You can get the DeviceMotion values just by typing
 ##Installation
 Just copy **MotionKit.swift** file into your Xcode project, and you're ready to go.
 MotionKit would soon be available from CocoaPods and Carthage.
+
+##Precaution:
+For performance issues, it is suggested that you should use only one instance of CMMotionManager throughout the app. Make sure to stop receiving updates from the sensors as soon as you get your work done.
+You can do this in MotionKit as
+```swift
+
+    // Make sure to call the required function when you're done
+    motionKit.stopAccelerometerUpdates()
+    motionKit.stopGyroUpdates()
+    motionKit.stopDeviceMotionUpdates()
+    motionKit.stopmagnetometerUpdates()
+
+```
