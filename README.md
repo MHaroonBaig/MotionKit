@@ -7,7 +7,7 @@ You can also get the *composited gyroscope and accelerometer data* from the **de
 You can retrieve all the values either by a trailing closure or by a delegate method. Both the methods are fully supported.
 
 ##Getting Accelerometer Values
-You can get the accelerometer values just by typing
+You can get the accelerometer values using just a few lines of code.
 
 ```swift
     var motionKit = MotionKit()
@@ -22,7 +22,7 @@ You can get the accelerometer values just by typing
 
 ```
 ##Getting Gyroscope Values
-You can get the Gyroscope values just by typing
+Gyroscope values could be retrieved by the following few lines of code.
 
 ```swift
     var motionKit = MotionKit()
@@ -37,7 +37,7 @@ You can get the Gyroscope values just by typing
 
 ```
 ##Getting Magnetometer Values
-You can get the Magnetometer values just by typing
+Getting Magnetometer values is as easy as grabing a cookie.
 
 ```swift
     var motionKit = MotionKit()
@@ -52,7 +52,7 @@ You can get the Magnetometer values just by typing
 
 ```
 ##Getting DeviceMotion Values
-You can get the DeviceMotion values just by typing
+Get the composited Accelerometer and Gyroscope values from the Device Motion.
 
 ```swift
     var motionKit = MotionKit()
