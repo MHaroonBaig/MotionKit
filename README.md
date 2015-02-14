@@ -72,7 +72,7 @@ MotionKit would soon be available from CocoaPods and Carthage.
 
 ##Precaution:
 For performance issues, it is suggested that you should use only one instance of CMMotionManager throughout the app. Make sure to stop receiving updates from the sensors as soon as you get your work done.
-You can do this in MotionKit as
+You can do this in MotionKit like this.
 ```swift
 
     // Make sure to call the required function when you're done
@@ -82,3 +82,10 @@ You can do this in MotionKit as
     motionKit.stopmagnetometerUpdates()
 
 ```
+#Requirements
+* iOS 7.0+
+* Xcode 6.1
+
+#TODO
+- [ ] Add More Methods
+- [ ] Adding Background Functionality
