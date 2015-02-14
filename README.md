@@ -3,7 +3,7 @@ A nice and clean wrapper for the **CoreMotion Framework**. The Core Motion frame
 The data can be retrieved from **Accelerometer**, **Gyroscope** and **Magnetometer**.
 You can also get the *composited gyroscope and accelerometer data* from the **deviceMotion** datatype itself instead of using raw Gyroscope or Accelerometer.
 
-#How It Works:
+#How does it works
 You can retrieve all the values either by a trailing closure or by a delegate method. Both the methods are fully supported.
 
 ##Getting Accelerometer Values
