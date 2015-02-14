@@ -121,12 +121,12 @@ Having that done, you'd probably want to implement a delegate method like this.
     func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double){
       //Do whatever you want with the x, y and z values. The absolute value is calculated through vector mathematics
       ......
-  }
+    }
 
-  func retrieveGyroscopeValues (x: Double, y:Double, z:Double, absoluteValue: Double){
+   func retrieveGyroscopeValues (x: Double, y:Double, z:Double, absoluteValue: Double){
     //Do whatever you want with the x, y and z values. The absolute value is calculated through vector mathematics
     ......
-}
+   }
 
 ```
 
