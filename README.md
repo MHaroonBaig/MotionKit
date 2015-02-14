@@ -13,9 +13,11 @@ You can get the accelerometer values just by typing
     var motionKit = MotionKit()
 
     motionKit.getAccelerometerValue(interval: 1.0){
+
         (x:Double, y:Double, z:Double) in
+        // Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
-        }
+      }
     }
 
 ```
