@@ -16,11 +16,43 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        motionKit.getAccelerometerValues(interval: 1.0){
-            (x:Double, y:Double, z:Double) in
-            println("X: \(x) Y: \(y) Z \(z)")
+        /* 
         
+        motionKit.getDeviceMotion(interval: 1.0){
+        (deviceMotion) -> () in
+        var a = deviceMotion.userAcceleration.x
+        println(a)
         }
+        
+        motionKit.getAccelerationFromDeviceMotion(interval: 1.0){
+        (x, y, z) -> () in
+        println(x)
+        }
+        
+        motionKit.getGravityAccelerationFromDeviceMotion(interval: 1.0) { (x, y, z) -> () in
+        println(x)
+        }
+        
+        
+        
+        motionKit.getMagneticFieldFromDeviceMotion(interval: 1.0) { (x, y, z, accuracy) -> () in
+        println(x)
+        println(accuracy)
+        }
+        
+        
+        motionKit.getAttitudeFromDeviceMotion(interval: 1.0) { (attitude) -> () in
+        println(attitude.yaw)
+        }
+        
+        
+        motionKit.getRotationRateFromDeviceMotion(interval: 1.0) { (x, y, z) -> () in
+        println(x)
+        }
+        
+        */
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
