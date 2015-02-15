@@ -115,7 +115,7 @@ Again, you can access it through the Device Motion service as well.
 
         }
 ```
-###Getting Magnetic Field around your Phone
+###Getting Magnetic Field around your device
 Interesting, Get it in a magical way.
 ```swift
       motionKit.getMagneticFieldFromDeviceMotion(interval: 1.0) {
