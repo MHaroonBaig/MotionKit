@@ -361,6 +361,7 @@ class MotionKit {
     */
     func stopAccelerometerUpdates(){
         self.manager.stopAccelerometerUpdates()
+        NSLog("Accelaration Updates Status - Stopped")
     }
     
     /*
@@ -371,6 +372,7 @@ class MotionKit {
     */
     func stopGyroUpdates(){
         self.manager.stopGyroUpdates()
+         NSLog("Gyroscope Updates Status - Stopped")
     }
     
     /*
@@ -381,6 +383,7 @@ class MotionKit {
     */
     func stopDeviceMotionUpdates() {
         self.manager.stopDeviceMotionUpdates()
+         NSLog("Device Motion Updates Status - Stopped")
     }
     
     /*
@@ -392,6 +395,7 @@ class MotionKit {
     @availability(iOS, introduced=5.0)
     func stopmagnetometerUpdates() {
         self.manager.stopMagnetometerUpdates()
+         NSLog("Magnetometer Updates Status - Stopped")
     }
     
 }
