@@ -62,7 +62,7 @@ Getting Magnetometer values is as easy as grabing a cookie.
 
 ```
 
-#Getting values through the CMDeviceMotion
+#CMDeviceMotion - as easy as pie
 In case if you want to get the processed values Accelerometer or Gyroscope, you can access the deviceMotion object directly to get those values, or, you can access the individual values from the standalone methods which work seamlessly with Trailing Closures and Delegates.
 
 The deviceMotion object includes:
@@ -77,7 +77,7 @@ The deviceMotion object includes:
 
 All of the values can be retrieved either by individual methods or by getting the deviceMotion object itself.
 
-##Getting the whole CMDeviceMotion Object
+###Getting the whole CMDeviceMotion Object
 ```swift
 
     motionKit.getDeviceMotion(interval: 1.0){
