@@ -41,7 +41,7 @@ class MotionKit {
     *			Starts accelerometer updates, providing data to the given handler through the given queue.
     *			Note that when the updates are stopped, all operations in the
     *			given NSOperationQueue will be cancelled. You can access the retrieved values either by a
-    *           Trailing Closure or through a Delegate.
+    *           Trailing Closure or through a Delgate.
     */
     func getAccelerometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z: Double) -> ())? ){
         
