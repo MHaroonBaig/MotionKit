@@ -213,7 +213,7 @@ class MotionKit {
             }
             
         } else {
-            NSLog("Device Motion is not available")
+            NSLog("Device Motion is unavailable")
         }
     }
     
