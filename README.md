@@ -9,9 +9,9 @@
 [![Issues](https://img.shields.io/github/issues/MHaroonBaig/MotionKit.svg?style=flat
 )](https://github.com/MHaroonBaig/MotionKit/issues?state=open)
 
-A nice and clean wrapper for the **CoreMotion Framework**. The Core Motion framework lets your application receive motion data from device hardware and process that data.
+A nice and clean wrapper around the **CoreMotion Framework**. The Core Motion framework lets your application receive motion data from device hardware and process that data.
 The data can be retrieved from **Accelerometer**, **Gyroscope** and **Magnetometer**.
-You can also get the *__composited gyroscope and accelerometer data__* from the **deviceMotion** datatype itself instead of getting raw Gyroscope or Accelerometer values. 
+You can also get the *__refined and processed gyroscope and accelerometer data__* from the **deviceMotion** datatype itself instead of getting raw Gyroscope or Accelerometer values.
 
 #How does it work
 You can retrieve all the values either by a trailing closure or by a delegate method. Both the approaches are fully supported.
