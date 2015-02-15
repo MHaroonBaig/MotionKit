@@ -34,7 +34,7 @@ class MotionKit {
     *  init:void:
     *
     *  Discussion:
-    *			Initialises the MotionKit class and throw a Log with a timestamp.
+    *   Initialises the MotionKit class and throw a Log with a timestamp.
     */
     init(){
         NSLog("MotionKit has been initialised successfully")
@@ -44,10 +44,10 @@ class MotionKit {
     *  getAccelerometerValues:interval:values:
     *
     *  Discussion:
-    *			Starts accelerometer updates, providing data to the given handler through the given queue.
-    *			Note that when the updates are stopped, all operations in the
-    *			given NSOperationQueue will be cancelled. You can access the retrieved values either by a
-    *           Trailing Closure or through a Delgate.
+    *   Starts accelerometer updates, providing data to the given handler through the given queue.
+    *   Note that when the updates are stopped, all operations in the
+    *   given NSOperationQueue will be cancelled. You can access the retrieved values either by a
+    *   Trailing Closure or through a Delgate.
     */
     func getAccelerometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z: Double) -> ())? ){
         
@@ -82,10 +82,10 @@ class MotionKit {
     *  getGyroValues:interval:values:
     *
     *  Discussion:
-    *			Starts gyro updates, providing data to the given handler through the given queue.
-    *			Note that when the updates are stopped, all operations in the
-    *			given NSOperationQueue will be cancelled. You can access the retrieved values either by a
-    *           Trailing Closure or through a Delegate.
+    *   Starts gyro updates, providing data to the given handler through the given queue.
+    *   Note that when the updates are stopped, all operations in the
+    *   given NSOperationQueue will be cancelled. You can access the retrieved values either by a
+    *   Trailing Closure or through a Delegate.
     */
     func getGyroValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z:Double) -> ())? ) {
         
@@ -120,8 +120,8 @@ class MotionKit {
     *  getMagnetometerValues:interval:values:
     *
     *  Discussion:
-    *      Starts magnetometer updates, providing data to the given handler through the given queue.
-    *      You can access the retrieved values either by a Trailing Closure or through a Delegate.
+    *   Starts magnetometer updates, providing data to the given handler through the given queue.
+    *   You can access the retrieved values either by a Trailing Closure or through a Delegate.
     */
     @availability(iOS, introduced=5.0)
     func getMagnetometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y:Double, z:Double) -> ())? ){
@@ -157,10 +157,10 @@ class MotionKit {
     *  getDeviceMotionValues:interval:values:
     *
     *  Discussion:
-    *			Starts device motion updates, providing data to the given handler through the given queue.
-    *			Uses the default reference frame for the device. Examine CMMotionManager's
-    *			attitudeReferenceFrame to determine this. You can access the retrieved values either by a
-    *           Trailing Closure or through a Delegate.
+    *   Starts device motion updates, providing data to the given handler through the given queue.
+    *   Uses the default reference frame for the device. Examine CMMotionManager's
+    *   attitudeReferenceFrame to determine this. You can access the retrieved values either by a
+    *   Trailing Closure or through a Delegate.
     */
     func getDeviceMotionObject (interval: NSTimeInterval = 0.1, values: ((deviceMotion: CMDeviceMotion) -> ())? ) {
         
@@ -209,7 +209,6 @@ class MotionKit {
                     values!(x: valX, y: valY, z: valZ)
                 }
                 
-                //var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
                 self.delegate?.getAccelerationValFromDeviceMotion!(valX, y: valY, z: valZ)
             }
             
@@ -245,7 +244,6 @@ class MotionKit {
                 }
                 
                 var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                //self.delegate?.retrieveDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
                 self.delegate?.getGravityAccelerationValFromDeviceMotion!(valX, y: valY, z: valZ)
             }
             
@@ -274,7 +272,6 @@ class MotionKit {
                     values!(attitude: data.attitude)
                 }
                 
-                //self.delegate?.retrieveDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
                 self.delegate?.getAttitudeFromDeviceMotion!(data.attitude)
             }
             
@@ -310,7 +307,6 @@ class MotionKit {
                 }
                 
                 var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                //self.delegate?.retrieveDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
                 self.delegate?.getRotationRateFromDeviceMotion!(valX, y: valY, z: valZ)
             }
             
@@ -349,8 +345,6 @@ class MotionKit {
                     values!(x: valX, y: valY, z: valZ, accuracy: valAccuracy)
                 }
                 
-                //var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                //self.delegate?.retrieveDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
                 self.delegate?.getMagneticFieldFromDeviceMotion!(valX, y: valY, z: valZ)
             }
             
@@ -363,7 +357,7 @@ class MotionKit {
     *  stopAccelerometerUpdates
     *
     *  Discussion:
-    *			Stop accelerometer updates.
+    *   Stop accelerometer updates.
     */
     func stopAccelerometerUpdates(){
         self.manager.stopAccelerometerUpdates()
@@ -373,7 +367,7 @@ class MotionKit {
     *  stopGyroUpdates
     *
     *  Discussion:
-    *			Stops gyro updates.
+    *   Stops gyro updates.
     */
     func stopGyroUpdates(){
         self.manager.stopGyroUpdates()
@@ -383,7 +377,7 @@ class MotionKit {
     *  stopDeviceMotionUpdates
     *
     *  Discussion:
-    *			Stops device motion updates.
+    *   Stops device motion updates.
     */
     func stopDeviceMotionUpdates() {
         self.manager.stopDeviceMotionUpdates()
@@ -393,7 +387,7 @@ class MotionKit {
     *  stopMagnetometerUpdates
     *
     *  Discussion:
-    *      Stops magnetometer updates.
+    *   Stops magnetometer updates.
     */
     @availability(iOS, introduced=5.0)
     func stopmagnetometerUpdates() {
