@@ -27,6 +27,7 @@ You can get the accelerometer values using just a few lines of code.
         (x:Double, y:Double, z:Double) in
         // Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
+        ...
       }
     }
 
