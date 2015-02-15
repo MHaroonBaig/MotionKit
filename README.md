@@ -23,12 +23,11 @@ You can get the accelerometer values using just a few lines of code.
     var motionKit = MotionKit()
 
     motionKit.getAccelerometerValues(interval: 1.0){
-        (x:Double, y:Double, z:Double) in
+        (x, y, z) in
         //Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
         ....
       }
-    }
 
 ```
 ##Getting Gyroscope Values
@@ -38,12 +37,11 @@ Gyroscope values could be retrieved by the following few lines of code.
     var motionKit = MotionKit()
 
     motionKit.getGyroValues(interval: 1.0){
-        (x:Double, y:Double, z:Double) in
+        (x, y, z) in
         //Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
         ....
       }
-    }
 
 ```
 ##Getting Magnetometer Values
@@ -53,12 +51,11 @@ Getting Magnetometer values is as easy as grabing a cookie.
     var motionKit = MotionKit()
 
     motionKit.getMagnetometerValues(interval: 1.0){
-        (x:Double, y:Double, z:Double) in
+        (x, y, z) in
         //Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
         ....
       }
-    }
 
 ```
 ##Installation
