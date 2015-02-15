@@ -27,7 +27,7 @@ You can get the accelerometer values using just a few lines of code.
         (x:Double, y:Double, z:Double) in
         // Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
-        ...
+        ....
       }
     }
 
@@ -43,6 +43,7 @@ Gyroscope values could be retrieved by the following few lines of code.
         (x:Double, y:Double, z:Double) in
         // Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
+        ....
       }
     }
 
@@ -58,6 +59,7 @@ Getting Magnetometer values is as easy as grabing a cookie.
         (x:Double, y:Double, z:Double) in
         // Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
+        ....
       }
     }
 
@@ -73,6 +75,7 @@ Get the composited Accelerometer and Gyroscope values from the Device Motion.
         (x:Double, y:Double, z:Double) in
         // Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
+        ....
       }
     }
 
