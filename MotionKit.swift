@@ -66,12 +66,12 @@ class MotionKit {
                 var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
                 self.delegate?.retrieveAccelerometerValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
-      
+            
         } else {
             NSLog("The Accelerometer is not available")
         }
     }
-   
+    
     /*
     *  getGyroValues:interval:values:
     *
@@ -82,17 +82,21 @@ class MotionKit {
     *           Trailing Closure or through a Delegate.
     */
     func getGyroValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z:Double) -> ())? ) {
+        
+        var valX: Double!
+        var valY: Double!
+        var valZ: Double!
         if manager.gyroAvailable{
             manager.gyroUpdateInterval = interval
             manager.startGyroUpdatesToQueue(NSOperationQueue()) {
                 (data: CMGyroData!, error: NSError!) in
-               
+                
                 if let isError = error{
                     NSLog("Error: %@", isError)
                 }
-                var valX = data.rotationRate.x
-                var valY = data.rotationRate.y
-                var valZ = data.rotationRate.z
+                valX = data.rotationRate.x
+                valY = data.rotationRate.y
+                valZ = data.rotationRate.z
                 
                 if values != nil{
                     values!(x: valX, y: valY, z: valZ)
@@ -116,6 +120,10 @@ class MotionKit {
     *           Trailing Closure or through a Delegate.
     */
     func getDeviceMotionValues (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double) -> ())? ) {
+        
+        var valX: Double!
+        var valY: Double!
+        var valZ: Double!
         if manager.deviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
             manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
@@ -124,9 +132,9 @@ class MotionKit {
                 if let isError = error{
                     NSLog("Error: %@", isError)
                 }
-                var valX = data.gravity.x
-                var valY = data.gravity.y
-                var valZ = data.gravity.z
+                valX = data.gravity.x
+                valY = data.gravity.y
+                valZ = data.gravity.z
                 
                 if values != nil{
                     values!(x: valX, y: valY, z: valZ)
@@ -150,6 +158,10 @@ class MotionKit {
     */
     @availability(iOS, introduced=5.0)
     func getMagnetometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y:Double, z:Double) -> ())? ){
+        
+        var valX: Double!
+        var valY: Double!
+        var valZ: Double!
         if manager.magnetometerAvailable {
             manager.magnetometerUpdateInterval = interval
             manager.startMagnetometerUpdatesToQueue(NSOperationQueue()){
@@ -158,9 +170,9 @@ class MotionKit {
                 if let isError = error{
                     NSLog("Error: %@", isError)
                 }
-                var valX = data.magneticField.x
-                var valY = data.magneticField.y
-                var valZ = data.magneticField.z
+                valX = data.magneticField.x
+                valY = data.magneticField.y
+                valZ = data.magneticField.z
                 
                 if values != nil{
                     values!(x: valX, y: valY, z: valZ)
