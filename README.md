@@ -11,7 +11,7 @@
 
 A nice and clean wrapper for the **CoreMotion Framework**. The Core Motion framework lets your application receive motion data from device hardware and process that data.
 The data can be retrieved from **Accelerometer**, **Gyroscope** and **Magnetometer**.
-You can also get the *composited gyroscope and accelerometer data* from the **deviceMotion** datatype itself instead of using raw Gyroscope or Accelerometer.
+You can also get the *__composited gyroscope and accelerometer data__* from the **deviceMotion** datatype itself instead of getting raw Gyroscope or Accelerometer values. 
 
 #How does it work
 You can retrieve all the values either by a trailing closure or by a delegate method. Both the approaches are fully supported.
