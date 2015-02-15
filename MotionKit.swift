@@ -24,7 +24,7 @@ class MotionKit {
     var delegate: MotionKitDelegate?
     
     init(){
-        println("Motion Kit initialised")
+        NSLog("MotionKit has been initialised successfully")
     }
     
     /*
@@ -168,18 +168,44 @@ class MotionKit {
     }
     
     // MARK :- Stop getting updates and kill the instance of the manager
+    
+    /*
+    *  stopAccelerometerUpdates
+    *
+    *  Discussion:
+    *			Stop accelerometer updates.
+    */
     func stopAccelerometerUpdates(){
         self.manager.stopAccelerometerUpdates()
     }
     
+    /*
+    *  stopGyroUpdates
+    *
+    *  Discussion:
+    *			Stops gyro updates.
+    */
     func stopGyroUpdates(){
         self.manager.stopGyroUpdates()
     }
     
+    /*
+    *  stopDeviceMotionUpdates
+    *
+    *  Discussion:
+    *			Stops device motion updates.
+    */
     func stopDeviceMotionUpdates() {
         self.manager.stopDeviceMotionUpdates()
     }
     
+    /*
+    *  stopMagnetometerUpdates
+    *
+    *  Discussion:
+    *      Stops magnetometer updates.
+    */
+    @availability(iOS, introduced=5.0)
     func stopmagnetometerUpdates() {
         self.manager.stopMagnetometerUpdates()
     }
