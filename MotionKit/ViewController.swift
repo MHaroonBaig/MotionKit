@@ -16,11 +16,7 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        motionKit.getDeviceMotion(interval: 1.0){
-            (deviceMotion) -> () in
-            var a = deviceMotion.userAcceleration.x
-            println(a)
-        }
+
         
         
         /*

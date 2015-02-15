@@ -61,6 +61,9 @@ Getting Magnetometer values is as easy as grabing a cookie.
     }
 
 ```
+##Installation
+Just copy **MotionKit.swift** file into your Xcode project, and you're ready to go.
+MotionKit would soon be available through CocoaPods and Carthage.
 
 #CMDeviceMotion - as easy as pie
 In case if you want to get the processed values Accelerometer or Gyroscope, you can access the deviceMotion object directly to get those values, or, you can access the individual values from the standalone methods which work seamlessly with Trailing Closures and Delegates.
@@ -91,9 +94,61 @@ All of the values can be retrieved either by individual methods or by getting th
         }
 
 ```
-##Installation
-Just copy **MotionKit.swift** file into your Xcode project, and you're ready to go.
-MotionKit would soon be available through CocoaPods and Carthage.
+###Getting refined values of Acceleration
+You can get the refined and processed userAccelaration through the Device Motion service by just a few lines of code, either by a Trailing Closure or through Delegation method.
+```swift
+
+    motionKit.getAccelerationFromDeviceMotion(interval: 1.0){
+        (x, y, z) -> () in
+          // Grab the x, y and z values
+          ....
+        }
+
+```
+###Getting Gravitational Acceleration
+Again, you can access it through the Device Motion service as well.
+```swift
+      motionKit.getGravityAccelerationFromDeviceMotion(interval: 1.0) {
+          (x, y, z) -> () in
+          // x, y and z values are here
+          ....
+
+        }
+```
+###Getting Magnetic Field around your Phone
+Interesting, Get it in a magical way.
+```swift
+      motionKit.getMagneticFieldFromDeviceMotion(interval: 1.0) {
+        (x, y, z, accuracy) -> () in
+        // Get the values with accuracy
+        ....
+        }
+
+```
+###Getting the Attitude metrics
+```swift
+      motionKit.getAttitudeFromDeviceMotion(interval: 1.0) {
+        (attitude) -> () in
+          var roll = attitude.roll
+          var pitch = attitude.pitch
+          var yaw = attitude.yaw
+          var rotationMatrix = attitude.rotationMatrix
+          var quaternion = attitude.quaternion
+          ....
+        }
+
+```
+###Getting Rotation Rate of your device
+```swift
+      motionKit.getRotationRateFromDeviceMotion(interval: 1.0) {
+        (x, y, z) -> () in
+        // There you go, grab the x, y and z values
+        ....
+        }
+
+```
+
+
 
 ##Precautions
 For performance issues, it is suggested that you should use only one instance of CMMotionManager throughout the app. Make sure to stop receiving updates from the sensors as soon as you get your work done.
