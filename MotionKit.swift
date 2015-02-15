@@ -9,7 +9,8 @@
 import Foundation
 import CoreMotion
 
-
+//_______________________________________________________________________________________________________________
+// this helps retrieve values from the sensors.
 @objc protocol MotionKitDelegate {
     optional func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
     optional func retrieveGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
@@ -23,6 +24,12 @@ class MotionKit {
     let manager = CMMotionManager()
     var delegate: MotionKitDelegate?
     
+    /*
+    *  init:void:
+    *
+    *  Discussion:
+    *			Initialises the MotionKit class and throw a Log with a timestamp.
+    */
     init(){
         NSLog("MotionKit has been initialised successfully")
     }
