@@ -24,7 +24,7 @@ You can get the accelerometer values using just a few lines of code.
 
     motionKit.getAccelerometerValues(interval: 1.0){
         (x:Double, y:Double, z:Double) in
-        // Do whatever you want with the x, y and z values
+        //Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
         ....
       }
@@ -38,9 +38,8 @@ Gyroscope values could be retrieved by the following few lines of code.
     var motionKit = MotionKit()
 
     motionKit.getGyroValues(interval: 1.0){
-
         (x:Double, y:Double, z:Double) in
-        // Do whatever you want with the x, y and z values
+        //Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
         ....
       }
@@ -54,9 +53,8 @@ Getting Magnetometer values is as easy as grabing a cookie.
     var motionKit = MotionKit()
 
     motionKit.getMagnetometerValues(interval: 1.0){
-
         (x:Double, y:Double, z:Double) in
-        // Do whatever you want with the x, y and z values
+        //Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
         ....
       }
@@ -70,9 +68,8 @@ Get the composited Accelerometer and Gyroscope values from the Device Motion.
     var motionKit = MotionKit()
 
     motionKit.getDeviceMotionValues(interval: 1.0){
-
         (x:Double, y:Double, z:Double) in
-        // Do whatever you want with the x, y and z values
+        //Do whatever you want with the x, y and z values
         println("X: \(x) Y: \(y) Z \(z)")
         ....
       }
@@ -88,7 +85,7 @@ For performance issues, it is suggested that you should use only one instance of
 You can do this in MotionKit like this.
 ```swift
 
-    // Make sure to call the required function when you're done
+    //Make sure to call the required function when you're done
     motionKit.stopAccelerometerUpdates()
     motionKit.stopGyroUpdates()
     motionKit.stopDeviceMotionUpdates()
