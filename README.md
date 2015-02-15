@@ -132,13 +132,13 @@ Having that done, you'd probably want to implement a delegate method like this.
 
 
 #Discussion
-You can join our [Reddit] (https://www.reddit.com/r/MotionKit/) channel to discuss anything.
+- You can join our [Reddit] (https://www.reddit.com/r/MotionKit/) channel to discuss anything.
 
-You can also open a new issue here for any kind of feature set that you want. We would love to hear from you.
+- You can also open an issue here for any kind of feature set that you want. We would love to hear from you.
 
-Don't forget to subscribe our Reddit channel, which is [/r/MotionKit] (https://www.reddit.com/r/MotionKit/)
+- Don't forget to subscribe our Reddit channel, which is [/r/MotionKit] (https://www.reddit.com/r/MotionKit/)
 
-Our StackOverflow tag is 'MotionKit'
+- Our StackOverflow tag is 'MotionKit'
 
 
 #Requirements
