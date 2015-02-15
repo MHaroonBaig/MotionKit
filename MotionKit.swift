@@ -27,7 +27,15 @@ class MotionKit {
         println("Motion Kit initialised")
     }
     
-    // Mark :- Start taking readings from accelerometer
+    /*
+    *  getAccelerometerValues:interval:values:
+    *
+    *  Discussion:
+    *			Starts accelerometer updates, providing data to the given handler through the given queue.
+    *			Note that when the updates are stopped, all operations in the
+    *			given NSOperationQueue will be cancelled. You can access the retrieved values either by a
+    *           Trailing Closure or through a Delegate.
+    */
     func getAccelerometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z: Double) -> ())? ){
         
         var valX: Double!
@@ -56,8 +64,16 @@ class MotionKit {
             NSLog("The Accelerometer is not available")
         }
     }
-    
-    // MARK :- Start taking updates from Gyro
+   
+    /*
+    *  getGyroValues:interval:values:
+    *
+    *  Discussion:
+    *			Starts gyro updates, providing data to the given handler through the given queue.
+    *			Note that when the updates are stopped, all operations in the
+    *			given NSOperationQueue will be cancelled. You can access the retrieved values either by a
+    *           Trailing Closure or through a Delegate.
+    */
     func getGyroValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z:Double) -> ())? ) {
         if manager.gyroAvailable{
             manager.gyroUpdateInterval = interval
@@ -83,7 +99,15 @@ class MotionKit {
         }
     }
     
-    // MARK :- Start taking values for Device Motion
+    /*
+    *  getDeviceMotionValues:interval:values:
+    *
+    *  Discussion:
+    *			Starts device motion updates, providing data to the given handler through the given queue.
+    *			Uses the default reference frame for the device. Examine CMMotionManager's
+    *			attitudeReferenceFrame to determine this. You can access the retrieved values either by a
+    *           Trailing Closure or through a Delegate.
+    */
     func getDeviceMotionValues (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double) -> ())? ) {
         if manager.deviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
@@ -110,7 +134,14 @@ class MotionKit {
         }
     }
     
-    // MARK :- Start taking Magnetometer values
+    /*
+    *  getMagnetometerValues:interval:values:
+    *
+    *  Discussion:
+    *      Starts magnetometer updates, providing data to the given handler through the given queue.
+    *      You can access the retrieved values either by a Trailing Closure or through a Delegate.
+    */
+    @availability(iOS, introduced=5.0)
     func getMagnetometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y:Double, z:Double) -> ())? ){
         if manager.magnetometerAvailable {
             manager.magnetometerUpdateInterval = interval
