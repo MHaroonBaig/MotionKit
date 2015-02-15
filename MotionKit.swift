@@ -14,8 +14,14 @@ import CoreMotion
 @objc protocol MotionKitDelegate {
     optional func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
     optional func retrieveGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
-    optional func retrieveDeviceMotionValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
+    optional func retrieveDeviceMotionObject  (deviceMotion: CMDeviceMotion)
     optional func retrieveMagnetometerValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
+    
+    optional func getAccelerationValFromDeviceMotion        (x: Double, y:Double, z:Double)
+    optional func getGravityAccelerationValFromDeviceMotion (x: Double, y:Double, z:Double)
+    optional func getRotationRateFromDeviceMotion           (x: Double, y:Double, z:Double)
+    optional func getMagneticFieldFromDeviceMotion          (x: Double, y:Double, z:Double)
+    optional func getAttitudeFromDeviceMotion               (attitude: CMAttitude)
 }
 
 
@@ -156,7 +162,7 @@ class MotionKit {
     *			attitudeReferenceFrame to determine this. You can access the retrieved values either by a
     *           Trailing Closure or through a Delegate.
     */
-    func getDeviceMotion (interval: NSTimeInterval = 0.1, values: ((deviceMotion: CMDeviceMotion) -> ())? ) {
+    func getDeviceMotionObject (interval: NSTimeInterval = 0.1, values: ((deviceMotion: CMDeviceMotion) -> ())? ) {
         
         if manager.deviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
@@ -169,6 +175,7 @@ class MotionKit {
                 if values != nil{
                     values!(deviceMotion: data)
                 }
+                self.delegate?.retrieveDeviceMotionObject!(data)
             }
             
         } else {
@@ -202,8 +209,8 @@ class MotionKit {
                     values!(x: valX, y: valY, z: valZ)
                 }
                 
-                var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                //self.delegate?.retrieveDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                //var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
+                self.delegate?.getAccelerationValFromDeviceMotion!(valX, y: valY, z: valZ)
             }
             
         } else {
@@ -239,6 +246,7 @@ class MotionKit {
                 
                 var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
                 //self.delegate?.retrieveDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                self.delegate?.getGravityAccelerationValFromDeviceMotion!(valX, y: valY, z: valZ)
             }
             
         } else {
@@ -267,6 +275,7 @@ class MotionKit {
                 }
                 
                 //self.delegate?.retrieveDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                self.delegate?.getAttitudeFromDeviceMotion!(data.attitude)
             }
             
         } else {
@@ -302,6 +311,7 @@ class MotionKit {
                 
                 var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
                 //self.delegate?.retrieveDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                self.delegate?.getRotationRateFromDeviceMotion!(valX, y: valY, z: valZ)
             }
             
         } else {
@@ -341,6 +351,7 @@ class MotionKit {
                 
                 //var absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
                 //self.delegate?.retrieveDeviceMotionValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                self.delegate?.getMagneticFieldFromDeviceMotion!(valX, y: valY, z: valZ)
             }
             
         } else {

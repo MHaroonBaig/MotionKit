@@ -16,18 +16,16 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        motionKit.getAccelerometerValues(interval: 1.0){
-            (x, y, z) in
-            //Do whatever you want with the x, y and z values
-            println("X: \(x) Y: \(y) Z \(z)")
+        
+        motionKit.getAccelerationFromDeviceMotion(interval: 1.0){
+            (x, y, z) -> () in
+            println(x)
         }
-    
-
         
         
         /*
         
-        motionKit.getDeviceMotion(interval: 1.0){
+        motionKit.getDeviceMotionObject(interval: 1.0){
         (deviceMotion) -> () in
         var a = deviceMotion.userAcceleration.x
         println(a)

@@ -80,7 +80,7 @@ All of the values can be retrieved either by individual methods or by getting th
 ###Getting the whole CMDeviceMotion Object
 ```swift
 
-    motionKit.getDeviceMotion(interval: 1.0){
+    motionKit.getDeviceMotionObject(interval: 1.0){
         (deviceMotion) -> () in
           var accelerationX = deviceMotion.userAcceleration.x
           var gravityX = deviceMotion.gravity.x
@@ -163,10 +163,18 @@ You can do this in MotionKit like this.
 ##Delegates
 In case if you dont want to use the trailing closures, we've got you covered. MotionKit supports the following Delegate methods to retrieve the sensor values.
 ```swift
-    func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
-    func retrieveGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
-    func retrieveDeviceMotionValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
-    func retrieveMagnetometerValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
+    optional func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
+    optional func retrieveGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
+    optional func retrieveDeviceMotionObject  (deviceMotion: CMDeviceMotion)
+    optional func retrieveMagnetometerValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
+
+
+    optional func getAccelerationValFromDeviceMotion        (x: Double, y:Double, z:Double)
+    optional func getGravityAccelerationValFromDeviceMotion (x: Double, y:Double, z:Double)
+    optional func getRotationRateFromDeviceMotion           (x: Double, y:Double, z:Double)
+    optional func getMagneticFieldFromDeviceMotion          (x: Double, y:Double, z:Double)
+    optional func getAttitudeFromDeviceMotion               (attitude: CMAttitude)
+
 ```
 To use the above delegate methods, you have to add the MotionKit delegate to your ViewController.
 ```swift
