@@ -61,19 +61,34 @@ Getting Magnetometer values is as easy as grabing a cookie.
     }
 
 ```
-##Getting DeviceMotion Values
-Get the composited Accelerometer and Gyroscope values from the Device Motion.
 
+#Getting values through the CMDeviceMotion
+In case if you want to get the processed values Accelerometer or Gyroscope, you can access the deviceMotion object directly to get those values, or, you can access the individual values from the standalone methods which work seamlessly with Trailing Closures and Delegates.
+
+The deviceMotion object includes:
+- Acceleration Data
+  - userAcceleration
+  - gravity
+- Calibrated Magnetic Field
+  - magneticField
+- Attitude and Rotation Rate
+  - attitude
+  - rotationRate
+
+All of the values can be retrieved either by individual methods or by getting the deviceMotion object itself.
+
+##Getting the whole CMDeviceMotion Object
 ```swift
-    var motionKit = MotionKit()
 
-    motionKit.getDeviceMotionValues(interval: 1.0){
-        (x:Double, y:Double, z:Double) in
-        //Do whatever you want with the x, y and z values
-        println("X: \(x) Y: \(y) Z \(z)")
-        ....
-      }
-    }
+    motionKit.getDeviceMotion(interval: 1.0){
+        (deviceMotion) -> () in
+          var accelerationX = deviceMotion.userAcceleration.x
+          var gravityX = deviceMotion.gravity.x
+          var rotationX = deviceMotion.rotationRate.x
+          var magneticFieldX = deviceMotion.magneticField.x
+          var attitideYaw = deviceMotion.attitude.yaw
+          ....
+        }
 
 ```
 ##Installation
