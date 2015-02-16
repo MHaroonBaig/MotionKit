@@ -1,4 +1,4 @@
-#MotionKit -- Lets just forget the CoreMotion
+#MotionKit - Lets you forget the CoreMotion
 
 [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
