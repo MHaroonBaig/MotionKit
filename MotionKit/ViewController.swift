@@ -17,12 +17,14 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         
         
-        motionKit.getAccelerationFromDeviceMotion(interval: 1.0){
-            (x, y, z) -> () in
-            println(x)
+    motionKit.getGyroValuesAtCurrentInstant { (x, y, z) -> () in
+        println(x)
+        println(y)
+        println(z)
         }
-        
-        
+    //motionKit.getAccelerationFromDeviceMotion(interval: 1.0) { (x, y, z) -> () in
+        //println("X: \(x) Y:\(y) X:\(z)")
+        //}
         /*
         
         motionKit.getDeviceMotionObject(interval: 1.0){

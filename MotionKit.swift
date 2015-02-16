@@ -185,8 +185,8 @@ class MotionKit {
     
     
     /*
-    getAccelerationFromDeviceMotion:interval:values:
-    You can retrieve the processed user accelaration data from the device motion from this method.
+    *   getAccelerationFromDeviceMotion:interval:values:
+    *   You can retrieve the processed user accelaration data from the device motion from this method.
     */
     func getAccelerationFromDeviceMotion (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double) -> ())? ) {
         
@@ -218,9 +218,9 @@ class MotionKit {
     }
     
     /*
-    getGravityAccelerationFromDeviceMotion:interval:values:
-    You can retrieve the processed gravitational accelaration data from the device motion from this
-    method.
+    *   getGravityAccelerationFromDeviceMotion:interval:values:
+    *   You can retrieve the processed gravitational accelaration data from the device motion from this
+    *   method.
     */
     func getGravityAccelerationFromDeviceMotion (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double) -> ())? ) {
         
@@ -254,9 +254,9 @@ class MotionKit {
     
     
     /*
-    getAttitudeFromDeviceMotion:interval:values:
-    You can retrieve the processed attitude data from the device motion from this
-    method.
+    *   getAttitudeFromDeviceMotion:interval:values:
+    *   You can retrieve the processed attitude data from the device motion from this
+    *   method.
     */
     func getAttitudeFromDeviceMotion (interval: NSTimeInterval = 0.1, values: ((attitude: CMAttitude) -> ())? ) {
         
@@ -281,9 +281,9 @@ class MotionKit {
     }
     
     /*
-    getRotationRateFromDeviceMotion:interval:values:
-    You can retrieve the processed rotation data from the device motion from this
-    method.
+    *   getRotationRateFromDeviceMotion:interval:values:
+    *   You can retrieve the processed rotation data from the device motion from this
+    *   method.
     */
     func getRotationRateFromDeviceMotion (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double) -> ())? ) {
         
@@ -317,9 +317,9 @@ class MotionKit {
     
     
     /*
-    getMagneticFieldFromDeviceMotion:interval:values:
-    You can retrieve the processed magnetic field data from the device motion from this
-    method.
+    *   getMagneticFieldFromDeviceMotion:interval:values:
+    *   You can retrieve the processed magnetic field data from the device motion from this
+    *   method.
     */
     func getMagneticFieldFromDeviceMotion (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double, accuracy: Int32) -> ())? ) {
         
@@ -352,6 +352,33 @@ class MotionKit {
             NSLog("Device Motion is not available")
         }
     }
+    
+    /*
+    *   From the methods hereafter, the sensor values could be retrieved at
+    *   a particular instant, whenever needed, through a trailing closure.
+    */
+    
+    func getAccelerationAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+        self.getAccelerationFromDeviceMotion(interval: 0.5) { (x, y, z) -> () in
+            values(x: x,y: y,z: z)
+            self.stopDeviceMotionUpdates()
+        }
+    }
+    
+    func getMageticFieldAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+        self.getMagneticFieldFromDeviceMotion(interval: 0.5) { (x, y, z, accuracy) -> () in
+            values(x: x,y: y,z: z)
+            self.stopDeviceMotionUpdates()
+        }
+    }
+    
+    func getGyroValuesAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+        self.getRotationRateFromDeviceMotion(interval: 0.5) { (x, y, z) -> () in
+            values(x: x,y: y,z: z)
+            self.stopDeviceMotionUpdates()
+        }
+    }
+    
     
     /*
     *  stopAccelerometerUpdates
