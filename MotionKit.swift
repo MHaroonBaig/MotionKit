@@ -153,6 +153,8 @@ class MotionKit {
         }
     }
     
+    /*  MARK :- DEVICE MOTION APPROACH STARTS HERE  */
+    
     /*
     *  getDeviceMotionValues:interval:values:
     *
@@ -353,16 +355,36 @@ class MotionKit {
         }
     }
     
+    /*  MARK :- DEVICE MOTION APPROACH ENDS HERE    */
+    
+    
     /*
     *   From the methods hereafter, the sensor values could be retrieved at
     *   a particular instant, whenever needed, through a trailing closure.
     */
+    
+    /*  MARK :- INSTANTANIOUS METHODS START HERE  */
     
     func getAccelerationAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
         self.getAccelerationFromDeviceMotion(interval: 0.5) { (x, y, z) -> () in
             values(x: x,y: y,z: z)
             self.stopDeviceMotionUpdates()
         }
+    }
+    
+    func getGravitationalAccelerationAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+        self.getGravityAccelerationFromDeviceMotion(interval: 0.5) { (x, y, z) -> () in
+            values(x: x,y: y,z: z)
+            self.stopDeviceMotionUpdates()
+        }
+    }
+    
+    func getAttitudeAtCurrentInstant (values: (attitude: CMAttitude) -> ()){
+        self.getAttitudeFromDeviceMotion(interval: 0.5) { (attitude) -> () in
+            values(attitude: attitude)
+            self.stopDeviceMotionUpdates()
+        }
+    
     }
     
     func getMageticFieldAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
@@ -378,6 +400,9 @@ class MotionKit {
             self.stopDeviceMotionUpdates()
         }
     }
+    
+    /*  MARK :- INSTANTANIOUS METHODS END HERE  */
+    
     
     
     /*
@@ -399,7 +424,7 @@ class MotionKit {
     */
     func stopGyroUpdates(){
         self.manager.stopGyroUpdates()
-         NSLog("Gyroscope Updates Status - Stopped")
+        NSLog("Gyroscope Updates Status - Stopped")
     }
     
     /*
@@ -410,7 +435,7 @@ class MotionKit {
     */
     func stopDeviceMotionUpdates() {
         self.manager.stopDeviceMotionUpdates()
-         NSLog("Device Motion Updates Status - Stopped")
+        NSLog("Device Motion Updates Status - Stopped")
     }
     
     /*
@@ -422,7 +447,7 @@ class MotionKit {
     @availability(iOS, introduced=5.0)
     func stopmagnetometerUpdates() {
         self.manager.stopMagnetometerUpdates()
-         NSLog("Magnetometer Updates Status - Stopped")
+        NSLog("Magnetometer Updates Status - Stopped")
     }
     
 }
