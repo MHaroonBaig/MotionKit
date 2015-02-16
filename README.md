@@ -9,7 +9,7 @@
 [![Issues](https://img.shields.io/github/issues/MHaroonBaig/MotionKit.svg?style=flat
 )](https://github.com/MHaroonBaig/MotionKit/issues?state=open)
 
-A nice and clean wrapper around the **CoreMotion Framework**. The Core Motion framework lets your application receive motion data from device hardware and process that data.
+A nice and clean wrapper around the **CoreMotion Framework** written entirely in Swift. The Core Motion framework lets your application receive motion data from device hardware and process that data.
 The data can be retrieved from **Accelerometer**, **Gyroscope** and **Magnetometer**.
 You can also get the *__refined and processed gyroscope and accelerometer data__* from the **deviceMotion** datatype itself instead of getting raw Gyroscope or Accelerometer values.
 
@@ -45,7 +45,7 @@ Gyroscope values could be retrieved by the following few lines of code.
 
 ```
 ##Getting Magnetometer Values
-Getting Magnetometer values is as easy as grabing a cookie.
+Getting Magnetometer values is as easy as grabbing a cookie.
 
 ```swift
     var motionKit = MotionKit()
@@ -63,7 +63,7 @@ Just copy **MotionKit.swift** file into your Xcode project, and you're ready to 
 MotionKit would soon be available through CocoaPods and Carthage.
 
 #CMDeviceMotion - as easy as pie
-In case if you want to get the processed values Accelerometer or Gyroscope, you can access the deviceMotion object directly to get those values, or, you can access the individual values from the standalone methods which work seamlessly with Trailing Closures and Delegates.
+In case if you want to get the processed values of Accelerometer or Gyroscope, you can access the deviceMotion object directly to get those values, or, you can access the individual values from the standalone methods which work seamlessly with Trailing Closures and Delegates.
 
 The deviceMotion object includes:
 - Acceleration Data
