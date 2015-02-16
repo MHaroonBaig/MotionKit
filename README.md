@@ -1,4 +1,4 @@
-#MotionKit — The missing iOS wrapper :notes:
+#[MotionKit] (http://goo.gl/bpXBlO) — The missing iOS wrapper :notes:
 
 [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
