@@ -216,28 +216,28 @@ if you want to get just a single value of any of the available sensors at a give
         (x, y, z) -> () in
         ....
       }
-        ```
+```
 ###Gravitational Acceleration
 ```swift
     motionKit.getAccelerationAtCurrentInstant {
       (x, y, z) -> () in
       ....
         }
-        ```
+```
 ###Attitude
 ```swift
     motionKit.getAttitudeAtCurrentInstant {
       (x, y, z) -> () in
       ....
         }
-        ```
+```
 ###Magnetic Field
 ```swift
     motionKit.getMageticFieldAtCurrentInstant {
       (x, y, z) -> () in
       ....
         }
-        ```
+```
 ###Gyroscope Values
 ```swift
     motionKit.getGyroValuesAtCurrentInstant {
