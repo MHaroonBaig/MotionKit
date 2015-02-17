@@ -208,7 +208,7 @@ Having that done, you'd probably want to implement a delegate method like this.
 ```
 
 ##Getting just a single value at an instant
-if you want to get just a single value of any available sensor at a time, you could probably use some of the handy methods provided in MotionKit.
+if you want to get just a single value of any of the available sensors at a given time, you could probably use some of the our handy methods provided in MotionKit.
 
 ###Accelerometer
 ```swift
