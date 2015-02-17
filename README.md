@@ -31,7 +31,7 @@ You can get the accelerometer values using just a few lines of code.
 ```swift
     motionKit.getAccelerometerValues(interval: 1.0){
         (x, y, z) in
-        //You have now got the x, y and z values here
+        //Interval is in seconds. And now you have got the x, y and z values here
         ....
       }
 
