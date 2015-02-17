@@ -26,8 +26,7 @@ You can get the accelerometer values using just a few lines of code.
 
     motionKit.getAccelerometerValues(interval: 1.0){
         (x, y, z) in
-        //Do whatever you want with the x, y and z values
-        println("X: \(x) Y: \(y) Z \(z)")
+        //Process the retrieved values here
         ....
       }
 
@@ -40,8 +39,7 @@ Gyroscope values could be retrieved by the following few lines of code.
 
     motionKit.getGyroValues(interval: 1.0){
         (x, y, z) in
-        //Do whatever you want with the x, y and z values
-        println("X: \(x) Y: \(y) Z \(z)")
+        //Your processing will go here
         ....
       }
 
@@ -54,8 +52,7 @@ Getting Magnetometer values is as easy as grabbing a cookie.
 
     motionKit.getMagnetometerValues(interval: 1.0){
         (x, y, z) in
-        //Do whatever you want with the x, y and z values
-        println("X: \(x) Y: \(y) Z \(z)")
+        //Do something with the retrieved values
         ....
       }
 
