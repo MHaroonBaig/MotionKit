@@ -17,8 +17,7 @@ You can also get the *__refined and processed gyroscope and accelerometer data__
 #How does it work
 You can retrieve all the values either by a trailing closure or by a delegate method. Both the approaches are fully supported.
 
-####Note:
-All the provided methods are Asynchronous and operate in their own Queue so that your app could run smoothly and efficiently. 
+**Note:** All the provided methods are Asynchronous and operate in their own Queue so that your app could run smoothly and efficiently. 
 ##Getting Accelerometer Values
 You can get the accelerometer values using just a few lines of code.
 
