@@ -26,7 +26,7 @@ You can get the accelerometer values using just a few lines of code.
 
     motionKit.getAccelerometerValues(interval: 1.0){
         (x, y, z) in
-        //Process the retrieved values here
+        //You have now got the x, y and z values here
         ....
       }
 
