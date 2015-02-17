@@ -244,7 +244,7 @@ if you want to get just a single value of any of the available sensors at a give
       (x, y, z) -> () in
       ....
         }
-        ```
+```
 
 
 #Discussion
