@@ -207,6 +207,45 @@ Having that done, you'd probably want to implement a delegate method like this.
 
 ```
 
+##Getting just a single value at an instant
+if you want to get just a single value of any available sensor at a time, you could probably use some of the handy methods provided in MotionKit.
+
+###Accelerometer
+```swift
+    motionKit.getAccelerationAtCurrentInstant {
+        (x, y, z) -> () in
+        ....
+      }
+        ```
+###Gravitational Acceleration
+```swift
+    motionKit.getAccelerationAtCurrentInstant {
+      (x, y, z) -> () in
+      ....
+        }
+        ```
+###Attitude
+```swift
+    motionKit.getAttitudeAtCurrentInstant {
+      (x, y, z) -> () in
+      ....
+        }
+        ```
+###Magnetic Field
+```swift
+    motionKit.getMageticFieldAtCurrentInstant {
+      (x, y, z) -> () in
+      ....
+        }
+        ```
+###Gyroscope Values
+```swift
+    motionKit.getGyroValuesAtCurrentInstant {
+      (x, y, z) -> () in
+      ....
+        }
+        ```
+
 
 #Discussion
 - You can join our [Reddit] (https://www.reddit.com/r/MotionKit/) channel to discuss anything.
