@@ -18,12 +18,17 @@ You can also get the *__refined and processed gyroscope and accelerometer data__
 You can retrieve all the values either by a trailing closure or by a delegate method. Both the approaches are fully supported.
 
 *__Note:__* All the provided methods are Asynchronous and operate in their own Queue so that your app could run smoothly and efficiently.
+
+##Initialise
+First, initialise the MotionKit instance. Its a Must.
+```swift
+    let motionKit = MotionKit()
+```
+
 ##Getting Accelerometer Values
 You can get the accelerometer values using just a few lines of code.
 
 ```swift
-    var motionKit = MotionKit()
-
     motionKit.getAccelerometerValues(interval: 1.0){
         (x, y, z) in
         //You have now got the x, y and z values here
@@ -35,8 +40,6 @@ You can get the accelerometer values using just a few lines of code.
 Gyroscope values could be retrieved by the following few lines of code.
 
 ```swift
-    var motionKit = MotionKit()
-
     motionKit.getGyroValues(interval: 1.0){
         (x, y, z) in
         //Your processing will go here
@@ -48,8 +51,6 @@ Gyroscope values could be retrieved by the following few lines of code.
 Getting Magnetometer values is as easy as grabbing a cookie.
 
 ```swift
-    var motionKit = MotionKit()
-
     motionKit.getMagnetometerValues(interval: 1.0){
         (x, y, z) in
         //Do something with the retrieved values
