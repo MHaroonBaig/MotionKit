@@ -109,8 +109,7 @@ Again, you can access it through the Device Motion service as well.
           (x, y, z) -> () in
           // x, y and z values are here
           ....
-
-        }
+      }
 ```
 ###Getting Magnetic Field around your device
 Interesting, Get it in a magical way.
