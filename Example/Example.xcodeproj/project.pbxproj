@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		754ACA9C1A954C5700E567DC /* MotionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754ACA991A954C4F00E567DC /* MotionKit.framework */; };
+		754ACA9D1A954C5A00E567DC /* MotionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754ACA991A954C4F00E567DC /* MotionKit.framework */; };
+		754ACA9E1A954C5A00E567DC /* MotionKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 754ACA991A954C4F00E567DC /* MotionKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75FDEDB81A95476B00283A97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FDEDB71A95476B00283A97 /* AppDelegate.swift */; };
 		75FDEDBB1A95476B00283A97 /* Example.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75FDEDB91A95476B00283A97 /* Example.xcdatamodeld */; };
 		75FDEDBD1A95476B00283A97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FDEDBC1A95476B00283A97 /* ViewController.swift */; };
@@ -14,12 +17,30 @@
 		75FDEDC21A95476B00283A97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75FDEDC11A95476B00283A97 /* Images.xcassets */; };
 		75FDEDC51A95476B00283A97 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75FDEDC31A95476B00283A97 /* LaunchScreen.xib */; };
 		75FDEDD11A95476B00283A97 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FDEDD01A95476B00283A97 /* ExampleTests.swift */; };
-		75FDEDE31A95480800283A97 /* MotionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75FDEDE01A9547BD00283A97 /* MotionKit.framework */; };
-		75FDEDE41A95482100283A97 /* MotionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75FDEDE01A9547BD00283A97 /* MotionKit.framework */; };
-		75FDEDE51A95482100283A97 /* MotionKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75FDEDE01A9547BD00283A97 /* MotionKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		754ACA981A954C4F00E567DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 754ACA931A954C4F00E567DC /* MotionKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 75FDED551A9541F800283A97;
+			remoteInfo = MotionKit;
+		};
+		754ACA9A1A954C4F00E567DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 754ACA931A954C4F00E567DC /* MotionKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 75FDED601A9541F800283A97;
+			remoteInfo = MotionKitTests;
+		};
+		754ACA9F1A954C5A00E567DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 754ACA931A954C4F00E567DC /* MotionKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 75FDED541A9541F800283A97;
+			remoteInfo = MotionKit;
+		};
 		75FDEDCB1A95476B00283A97 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 75FDEDAA1A95476B00283A97 /* Project object */;
@@ -27,37 +48,16 @@
 			remoteGlobalIDString = 75FDEDB11A95476B00283A97;
 			remoteInfo = Example;
 		};
-		75FDEDDF1A9547BD00283A97 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75FDEDDA1A9547BD00283A97 /* MotionKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 75FDED551A9541F800283A97;
-			remoteInfo = MotionKit;
-		};
-		75FDEDE11A9547BD00283A97 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75FDEDDA1A9547BD00283A97 /* MotionKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 75FDED601A9541F800283A97;
-			remoteInfo = MotionKitTests;
-		};
-		75FDEDE61A95482100283A97 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75FDEDDA1A9547BD00283A97 /* MotionKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 75FDED541A9541F800283A97;
-			remoteInfo = MotionKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		75FDEDE81A95482100283A97 /* Embed Frameworks */ = {
+		754ACAA11A954C5A00E567DC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				75FDEDE51A95482100283A97 /* MotionKit.framework in Embed Frameworks */,
+				754ACA9E1A954C5A00E567DC /* MotionKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		754ACA931A954C4F00E567DC /* MotionKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MotionKit.xcodeproj; sourceTree = "<group>"; };
 		75FDEDB21A95476B00283A97 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FDEDB61A95476B00283A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75FDEDB71A95476B00283A97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		75FDEDCA1A95476B00283A97 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FDEDCF1A95476B00283A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75FDEDD01A95476B00283A97 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
-		75FDEDDA1A9547BD00283A97 /* MotionKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MotionKit.xcodeproj; path = "../Training/Swift Training/MyPractice/MotionKit/MotionKit/MotionKit.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75FDEDE31A95480800283A97 /* MotionKit.framework in Frameworks */,
-				75FDEDE41A95482100283A97 /* MotionKit.framework in Frameworks */,
+				754ACA9C1A954C5700E567DC /* MotionKit.framework in Frameworks */,
+				754ACA9D1A954C5A00E567DC /* MotionKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,10 +99,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		754ACA941A954C4F00E567DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				754ACA991A954C4F00E567DC /* MotionKit.framework */,
+				754ACA9B1A954C4F00E567DC /* MotionKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		75FDEDA91A95476B00283A97 = {
 			isa = PBXGroup;
 			children = (
-				75FDEDDA1A9547BD00283A97 /* MotionKit.xcodeproj */,
+				754ACA931A954C4F00E567DC /* MotionKit.xcodeproj */,
 				75FDEDB41A95476B00283A97 /* Example */,
 				75FDEDCD1A95476B00283A97 /* ExampleTests */,
 				75FDEDB31A95476B00283A97 /* Products */,
@@ -157,15 +166,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		75FDEDDB1A9547BD00283A97 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				75FDEDE01A9547BD00283A97 /* MotionKit.framework */,
-				75FDEDE21A9547BD00283A97 /* MotionKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,12 +176,12 @@
 				75FDEDAE1A95476B00283A97 /* Sources */,
 				75FDEDAF1A95476B00283A97 /* Frameworks */,
 				75FDEDB01A95476B00283A97 /* Resources */,
-				75FDEDE81A95482100283A97 /* Embed Frameworks */,
+				754ACAA11A954C5A00E567DC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				75FDEDE71A95482100283A97 /* PBXTargetDependency */,
+				754ACAA01A954C5A00E567DC /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -237,8 +237,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 75FDEDDB1A9547BD00283A97 /* Products */;
-					ProjectRef = 75FDEDDA1A9547BD00283A97 /* MotionKit.xcodeproj */;
+					ProductGroup = 754ACA941A954C4F00E567DC /* Products */;
+					ProjectRef = 754ACA931A954C4F00E567DC /* MotionKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -250,18 +250,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		75FDEDE01A9547BD00283A97 /* MotionKit.framework */ = {
+		754ACA991A954C4F00E567DC /* MotionKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = MotionKit.framework;
-			remoteRef = 75FDEDDF1A9547BD00283A97 /* PBXContainerItemProxy */;
+			remoteRef = 754ACA981A954C4F00E567DC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75FDEDE21A9547BD00283A97 /* MotionKitTests.xctest */ = {
+		754ACA9B1A954C4F00E567DC /* MotionKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = MotionKitTests.xctest;
-			remoteRef = 75FDEDE11A9547BD00283A97 /* PBXContainerItemProxy */;
+			remoteRef = 754ACA9A1A954C4F00E567DC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -308,15 +308,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		754ACAA01A954C5A00E567DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MotionKit;
+			targetProxy = 754ACA9F1A954C5A00E567DC /* PBXContainerItemProxy */;
+		};
 		75FDEDCC1A95476B00283A97 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 75FDEDB11A95476B00283A97 /* Example */;
 			targetProxy = 75FDEDCB1A95476B00283A97 /* PBXContainerItemProxy */;
-		};
-		75FDEDE71A95482100283A97 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MotionKit;
-			targetProxy = 75FDEDE61A95482100283A97 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
