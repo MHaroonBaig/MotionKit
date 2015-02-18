@@ -3,7 +3,7 @@
 //  MotionKit
 //
 //  Created by Haroon on 14/02/2015.
-//  Copyright (c) 2015 MotionKit. All rights reserved.
+//  Launched under the MIT License. You're free to use MotionKit. 
 //
 //  The original Github repository is https://github.com/MHaroonBaig/MotionKit
 //  The official blog post and documentation is https://medium.com/@PyBaig/motionkit-the-missing-ios-coremotion-wrapper-written-in-swift-99fcb83355d0
