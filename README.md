@@ -59,6 +59,14 @@ Getting Magnetometer values is as easy as grabbing a cookie.
 
 ```
 ##Installation
+Embedded frameworks require a minimum deployment target of iOS 8.
+
+###Using Carthage
+```ruby
+  github "MHaroonBaig/MotionKit"
+```
+
+
 Just copy **MotionKit.swift** file into your Xcode project, and you're ready to go.
 MotionKit would soon be available through CocoaPods and Carthage.
 
