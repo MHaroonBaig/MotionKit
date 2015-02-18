@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7561B6051A8F6F2E00E73FE1"
-               BuildableName = "MotionKit.app"
+               BlueprintIdentifier = "75FDED541A9541F800283A97"
+               BuildableName = "MotionKit.framework"
                BlueprintName = "MotionKit"
                ReferencedContainer = "container:MotionKit.xcodeproj">
             </BuildableReference>
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7561B61D1A8F6F2E00E73FE1"
+               BlueprintIdentifier = "75FDED5F1A9541F800283A97"
                BuildableName = "MotionKitTests.xctest"
                BlueprintName = "MotionKitTests"
                ReferencedContainer = "container:MotionKit.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7561B61D1A8F6F2E00E73FE1"
+               BlueprintIdentifier = "75FDED5F1A9541F800283A97"
                BuildableName = "MotionKitTests.xctest"
                BlueprintName = "MotionKitTests"
                ReferencedContainer = "container:MotionKit.xcodeproj">
@@ -56,8 +56,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7561B6051A8F6F2E00E73FE1"
-            BuildableName = "MotionKit.app"
+            BlueprintIdentifier = "75FDED541A9541F800283A97"
+            BuildableName = "MotionKit.framework"
             BlueprintName = "MotionKit"
             ReferencedContainer = "container:MotionKit.xcodeproj">
          </BuildableReference>
@@ -72,15 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7561B6051A8F6F2E00E73FE1"
-            BuildableName = "MotionKit.app"
+            BlueprintIdentifier = "75FDED541A9541F800283A97"
+            BuildableName = "MotionKit.framework"
             BlueprintName = "MotionKit"
             ReferencedContainer = "container:MotionKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -90,15 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7561B6051A8F6F2E00E73FE1"
-            BuildableName = "MotionKit.app"
+            BlueprintIdentifier = "75FDED541A9541F800283A97"
+            BuildableName = "MotionKit.framework"
             BlueprintName = "MotionKit"
             ReferencedContainer = "container:MotionKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

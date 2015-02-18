@@ -2,8 +2,8 @@
 //  MotionKitTests.swift
 //  MotionKitTests
 //
-//  Created by Haroon on 14/02/2015.
-//  Copyright (c) 2015 SwiftKit. All rights reserved.
+//  Created by Haroon on 19/02/2015.
+//  Copyright (c) 2015 MotionKit. All rights reserved.
 //
 
 import UIKit
