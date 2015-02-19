@@ -5,6 +5,8 @@
 [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
 )](https://developer.apple.com/swift)
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
+[![Version](https://img.shields.io/cocoapods/v/MotionKit.svg?style=flat)](http://cocoadocs.org/docsets/EVCloudKitDao)
+
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 [![Issues](https://img.shields.io/github/issues/MHaroonBaig/MotionKit.svg?style=flat
@@ -79,7 +81,7 @@ You can use [Carthage](https://github.com/Carthage/Carthage) to install `MotionK
 ```
 
 ###Manual Installation
-Just copy **MotionKit.swift** file into your Xcode project, and you're ready to go.
+Just copy the `MotionKit.swift` file into your Xcode project folder, and you're ready to go.
 
 #CMDeviceMotion - as easy as pie
 In case if you want to get the processed values of Accelerometer or Gyroscope, you can access the deviceMotion object directly to get those values, or, you can access the individual values from the standalone methods which work seamlessly with Trailing Closures and Delegates.
