@@ -61,8 +61,19 @@ Getting Magnetometer values is as easy as grabbing a cookie.
 ```
 ##Installation
 Embedded frameworks require a minimum deployment target of iOS 8.
+###Using CocoaPods
+Just add this to your Podfile.
+```ruby
+pod 'MotionKit', '~> 0.6'
+```
+Note that you have to use CocoaPods version 0.36, the pre-released version which supports swift. If you don't already have it, install it with a single command.
+```bash
+[sudo] gem install cocoapods --pre
+```
+
 
 ###Using Carthage
+You can use [Carthage](https://github.com/Carthage/Carthage) to install `MotionKit` by adding the following line to your `Cartfile`
 ```ruby
   github "MHaroonBaig/MotionKit"
 ```
