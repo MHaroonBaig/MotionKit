@@ -11,6 +11,8 @@
 [![Issues](https://img.shields.io/github/issues/MHaroonBaig/MotionKit.svg?style=flat
 )](https://github.com/MHaroonBaig/MotionKit/issues?state=open)
 
+Now you can grab the data from Accelerometer, Magnetometer, Gyroscope and Device Motion in a magical way, with just a Two or a few lines of code. 
+
 A nice and clean wrapper around the **CoreMotion Framework** written entirely in Swift. The Core Motion framework lets your application receive motion data from device hardware and process that data.
 The data can be retrieved from **Accelerometer**, **Gyroscope** and **Magnetometer**.
 You can also get the *__refined and processed gyroscope and accelerometer data__* from the **deviceMotion** datatype itself instead of getting raw Gyroscope or Accelerometer values.
