@@ -66,21 +66,20 @@ Just add this to your Podfile.
 ```ruby
 pod 'MotionKit', '~> 0.6'
 ```
-Note that you have to use CocoaPods version 0.36, the pre-released version which supports swift. If you don't already have it, install it with a single command.
+Note that you have to use CocoaPods version 0.36, the pre-released version which supports swift. If you don't already have it, you can grab it with a single command.
 ```bash
 [sudo] gem install cocoapods --pre
 ```
 
 
 ###Using Carthage
-You can use [Carthage](https://github.com/Carthage/Carthage) to install `MotionKit` by adding the following line to your `Cartfile`
+You can use [Carthage](https://github.com/Carthage/Carthage) to install `MotionKit` by adding the following line to your `Cartfile`.
 ```ruby
   github "MHaroonBaig/MotionKit"
 ```
 
-
+###Manual Installation
 Just copy **MotionKit.swift** file into your Xcode project, and you're ready to go.
-MotionKit would soon be available through CocoaPods and Carthage.
 
 #CMDeviceMotion - as easy as pie
 In case if you want to get the processed values of Accelerometer or Gyroscope, you can access the deviceMotion object directly to get those values, or, you can access the individual values from the standalone methods which work seamlessly with Trailing Closures and Delegates.
