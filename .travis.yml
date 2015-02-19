@@ -2,3 +2,5 @@ language: objective-c
 xcode_project: MotionKit.xcodeproj # path to your xcodeproj folder
 xcode_scheme: MotionKit
 osx_image: xcode611
+
+script: xcodebuild -project MotionKit.xcodeproj -target 8.0 -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
