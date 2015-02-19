@@ -3,4 +3,4 @@ xcode_project: MotionKit.xcodeproj # path to your xcodeproj folder
 xcode_scheme: MotionKit
 osx_image: xcode611
 
-script: xcodebuild -project MotionKit.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 6,OS=8.0'
+script: xcodebuild -project MotionKit.xcodeproj -scheme Example -destination 'platform=iOS Simulator,name=iPhone 6,OS=8.0'
