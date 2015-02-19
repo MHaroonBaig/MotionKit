@@ -15,9 +15,9 @@ Now you can grab the data from Accelerometer, Magnetometer, Gyroscope and Device
 
 A nice and clean wrapper around the **CoreMotion Framework** written entirely in Swift. The Core Motion framework lets your application receive motion data from device hardware and process that data.
 The data can be retrieved from **Accelerometer**, **Gyroscope** and **Magnetometer**.
-You can also get the **refined and processed gyroscope and accelerometer data** from the `deviceMotion` datatype itself instead of getting the raw values. 
+You can also get the **refined and processed gyroscope and accelerometer data** from the `deviceMotion` datatype itself instead of getting the raw values.
 
-**Articles accompanying MotionKit**: [Link1](https://medium.com/@PyBaig/distribute-your-swift-code-libraries-and-frameworks-using-cocoapods-b41c62cd7c94) —  [Link2](https://medium.com/@PyBaig/build-your-own-cocoa-touch-frameworks-in-swift-d4ea3d1f9ca3) —  [Link3](https://medium.com/@PyBaig/motionkit-the-missing-ios-coremotion-wrapper-written-in-swift-99fcb83355d0)
+**Articles accompanying MotionKit:** [Link1](https://medium.com/@PyBaig/distribute-your-swift-code-libraries-and-frameworks-using-cocoapods-b41c62cd7c94) —  [Link2](https://medium.com/@PyBaig/build-your-own-cocoa-touch-frameworks-in-swift-d4ea3d1f9ca3) —  [Link3](https://medium.com/@PyBaig/motionkit-the-missing-ios-coremotion-wrapper-written-in-swift-99fcb83355d0)
 #How does it work
 You can retrieve all the values either by a trailing closure or by a delegate method. Both the approaches are fully supported.
 
