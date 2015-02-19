@@ -60,7 +60,7 @@ Getting Magnetometer values is as easy as grabbing a cookie.
       }
 
 ```
-##Installation
+#Installation
 Embedded frameworks require a minimum deployment target of iOS 8.
 ###Using CocoaPods
 Just add this to your Podfile.
