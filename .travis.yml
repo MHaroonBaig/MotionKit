@@ -1,3 +1,4 @@
 language: objective-c
 xcode_project: MotionKit.xcodeproj # path to your xcodeproj folder
 xcode_scheme: MotionKit
+osx_image: xcode611
