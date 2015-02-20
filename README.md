@@ -145,6 +145,15 @@ All of the values can be retrieved either by individual methods or by getting th
         }
 
 ```
+
+**Objective-C**
+```objective-c
+[motionKit getDeviceMotionObjectWithInterval:1.0 values:^(CMDeviceMotion *deviceMotion) {
+    // Your values here
+}];
+
+```
+
 ###Getting refined values of Acceleration
 You can get the refined and processed userAccelaration through the Device Motion service by just a few lines of code, either by a Trailing Closure or through Delegation method.
 
