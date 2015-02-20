@@ -153,6 +153,14 @@ You can get the refined and processed userAccelaration through the Device Motion
         }
 
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getAccelerationFromDeviceMotion:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 ###Getting Gravitational Acceleration
 Again, you can access it through the Device Motion service as well.
 ```swift
@@ -162,6 +170,14 @@ Again, you can access it through the Device Motion service as well.
           ....
       }
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getGravityAccelerationFromDeviceMotion:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 ###Getting Magnetic Field around your device
 Interesting, Get it in a magical way.
 ```swift
@@ -172,6 +188,14 @@ Interesting, Get it in a magical way.
         }
 
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getMagneticFieldFromDeviceMotion:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 ###Getting the Attitude metrics
 ```swift
       motionKit.getAttitudeFromDeviceMotion(interval: 1.0) {
@@ -183,9 +207,17 @@ Interesting, Get it in a magical way.
           var quaternion = attitude.quaternion
           ....
         }
-
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getAttitudeFromDeviceMotionWithInterval:1.0 values:^(CMAttitude        *attitude) {
+     // Your values here
+   }];
+```
+
 ###Getting Rotation Rate of your device
+
 ```swift
       motionKit.getRotationRateFromDeviceMotion(interval: 1.0) {
         (x, y, z) -> () in
@@ -194,6 +226,14 @@ Interesting, Get it in a magical way.
         }
 
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getRotationRateFromDeviceMotion:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 
 
 
