@@ -76,6 +76,7 @@ Gyroscope values could be retrieved by the following few lines of code.
 ##Getting Magnetometer Values
 Getting Magnetometer values is as easy as grabbing a cookie.
 
+**Swift**
 ```swift
     motionKit.getMagnetometerValues(interval: 1.0){
         (x, y, z) in
