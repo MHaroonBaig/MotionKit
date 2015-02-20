@@ -26,7 +26,7 @@ You can retrieve all the values either by a trailing closure or by a delegate me
 ##Initialise
 First, initialise the MotionKit instance. Its a Must.
 
-<div align="right">
+<div align="right" style="color:#FE834C">
 <b>Swift</b>
 </div>
 ```swift
