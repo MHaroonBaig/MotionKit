@@ -30,7 +30,9 @@ First, initialise the MotionKit instance. Its a Must.
 ```swift
     let motionKit = MotionKit()
 ```
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     MotionKit *motionKit = [[NSClassFromString(@"MotionKit") alloc] init];
 ```
@@ -47,7 +49,9 @@ You can get the accelerometer values using just a few lines of code.
       }
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getAccelerometerValuesWithInterval:1.0 values:^(double x, double y,               double z) {
     // your values here
@@ -66,7 +70,9 @@ Gyroscope values could be retrieved by the following few lines of code.
       }
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getGyroValues:1.0 values:^(double x, double y,double z) {
     // your values here
@@ -85,7 +91,9 @@ Getting Magnetometer values is as easy as grabbing a cookie.
       }
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getMagnetometerValues:1.0 values:^(double x, double y,double z) {
     // your values here
@@ -146,7 +154,9 @@ All of the values can be retrieved either by individual methods or by getting th
 
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
 [motionKit getDeviceMotionObjectWithInterval:1.0 values:^(CMDeviceMotion *deviceMotion) {
     // Your values here
@@ -168,7 +178,9 @@ You can get the refined and processed userAccelaration through the Device Motion
 
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getAccelerationFromDeviceMotion:1.0 values:^(double x, double y,double z) {
     // your values here
@@ -187,7 +199,9 @@ Again, you can access it through the Device Motion service as well.
       }
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getGravityAccelerationFromDeviceMotion:1.0 values:^(double x, double y,double z) {
     // your values here
@@ -207,7 +221,9 @@ Interesting, Get it in a magical way.
 
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getMagneticFieldFromDeviceMotion:1.0 values:^(double x, double y,double z) {
     // your values here
@@ -229,7 +245,9 @@ Interesting, Get it in a magical way.
         }
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getAttitudeFromDeviceMotionWithInterval:1.0 values:^(CMAttitude        *attitude) {
      // Your values here
@@ -248,7 +266,9 @@ Interesting, Get it in a magical way.
 
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getRotationRateFromDeviceMotion:1.0 values:^(double x, double y,double z) {
     // your values here
@@ -329,7 +349,9 @@ if you want to get just a single value of any of the available sensors at a give
       }
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getAccelerationAtCurrentInstant:1.0 values:^(double x, double y,double z) {
     // your values here
@@ -346,7 +368,9 @@ if you want to get just a single value of any of the available sensors at a give
         }
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getAccelerationAtCurrentInstant:1.0 values:^(double x, double y,double z) {
     // your values here
@@ -363,7 +387,9 @@ if you want to get just a single value of any of the available sensors at a give
         }
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getAttitudeAtCurrentInstant:1.0 values:^(double x, double y,double z) {
     // your values here
@@ -380,7 +406,9 @@ if you want to get just a single value of any of the available sensors at a give
         }
 ```
 
-**Objective-C**
+<div align="right">
+<b>Objective-C</b>
+</div>
 ```objective-c
     [motionKit getMageticFieldAtCurrentInstant:1.0 values:^(double x, double y,double z) {
     // your values here
