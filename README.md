@@ -27,13 +27,13 @@ You can retrieve all the values either by a trailing closure or by a delegate me
 First, initialise the MotionKit instance. Its a Must.
 
 <div align="right" style="color:#FE834C">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
     let motionKit = MotionKit()
 ```
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     MotionKit *motionKit = [[NSClassFromString(@"MotionKit") alloc] init];
@@ -43,7 +43,7 @@ First, initialise the MotionKit instance. Its a Must.
 You can get the accelerometer values using just a few lines of code.
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
     motionKit.getAccelerometerValues(interval: 1.0){
@@ -54,7 +54,7 @@ You can get the accelerometer values using just a few lines of code.
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getAccelerometerValuesWithInterval:1.0 values:^(double x, double y,               double z) {
@@ -66,7 +66,7 @@ You can get the accelerometer values using just a few lines of code.
 Gyroscope values could be retrieved by the following few lines of code.
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
     motionKit.getGyroValues(interval: 1.0){
@@ -77,7 +77,7 @@ Gyroscope values could be retrieved by the following few lines of code.
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getGyroValues:1.0 values:^(double x, double y,double z) {
@@ -89,7 +89,7 @@ Gyroscope values could be retrieved by the following few lines of code.
 Getting Magnetometer values is as easy as grabbing a cookie.
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
     motionKit.getMagnetometerValues(interval: 1.0){
@@ -100,7 +100,7 @@ Getting Magnetometer values is as easy as grabbing a cookie.
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getMagnetometerValues:1.0 values:^(double x, double y,double z) {
@@ -148,7 +148,7 @@ All of the values can be retrieved either by individual methods or by getting th
 ###Getting the whole CMDeviceMotion Object
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
 
@@ -165,7 +165,7 @@ All of the values can be retrieved either by individual methods or by getting th
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
 [motionKit getDeviceMotionObjectWithInterval:1.0 values:^(CMDeviceMotion *deviceMotion) {
@@ -179,7 +179,7 @@ All of the values can be retrieved either by individual methods or by getting th
 You can get the refined and processed userAccelaration through the Device Motion service by just a few lines of code, either by a Trailing Closure or through Delegation method.
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 
 ```swift
@@ -191,7 +191,7 @@ You can get the refined and processed userAccelaration through the Device Motion
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getAccelerationFromDeviceMotion:1.0 values:^(double x, double y,double z) {
@@ -203,7 +203,7 @@ You can get the refined and processed userAccelaration through the Device Motion
 Again, you can access it through the Device Motion service as well.
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
       motionKit.getGravityAccelerationFromDeviceMotion(interval: 1.0) {
@@ -214,7 +214,7 @@ Again, you can access it through the Device Motion service as well.
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getGravityAccelerationFromDeviceMotion:1.0 values:^(double x, double y,double z) {
@@ -226,7 +226,7 @@ Again, you can access it through the Device Motion service as well.
 Interesting, Get it in a magical way.
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
       motionKit.getMagneticFieldFromDeviceMotion(interval: 1.0) {
@@ -238,7 +238,7 @@ Interesting, Get it in a magical way.
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getMagneticFieldFromDeviceMotion:1.0 values:^(double x, double y,double z) {
@@ -249,7 +249,7 @@ Interesting, Get it in a magical way.
 ###Getting the Attitude metrics
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
       motionKit.getAttitudeFromDeviceMotion(interval: 1.0) {
@@ -264,7 +264,7 @@ Interesting, Get it in a magical way.
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getAttitudeFromDeviceMotionWithInterval:1.0 values:^(CMAttitude        *attitude) {
@@ -275,7 +275,7 @@ Interesting, Get it in a magical way.
 ###Getting Rotation Rate of your device
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
       motionKit.getRotationRateFromDeviceMotion(interval: 1.0) {
@@ -287,7 +287,7 @@ Interesting, Get it in a magical way.
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getRotationRateFromDeviceMotion:1.0 values:^(double x, double y,double z) {
@@ -362,7 +362,7 @@ if you want to get just a single value of any of the available sensors at a give
 ###Accelerometer
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
     motionKit.getAccelerationAtCurrentInstant {
@@ -372,7 +372,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getAccelerationAtCurrentInstant:1.0 values:^(double x, double y,double z) {
@@ -383,7 +383,7 @@ if you want to get just a single value of any of the available sensors at a give
 ###Gravitational Acceleration
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
     motionKit.getAccelerationAtCurrentInstant {
@@ -393,7 +393,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getAccelerationAtCurrentInstant:1.0 values:^(double x, double y,double z) {
@@ -404,7 +404,7 @@ if you want to get just a single value of any of the available sensors at a give
 ###Attitude
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
     motionKit.getAttitudeAtCurrentInstant {
@@ -414,7 +414,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getAttitudeAtCurrentInstant:1.0 values:^(double x, double y,double z) {
@@ -425,7 +425,7 @@ if you want to get just a single value of any of the available sensors at a give
 ###Magnetic Field
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
     motionKit.getMageticFieldAtCurrentInstant {
@@ -435,7 +435,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getMageticFieldAtCurrentInstant:1.0 values:^(double x, double y,double z) {
@@ -446,7 +446,7 @@ if you want to get just a single value of any of the available sensors at a give
 ###Gyroscope Values
 
 <div align="right">
-<h7><i>Swift</i></h7>
+<h6><i>Swift</i></h6>
 </div>
 ```swift
     motionKit.getGyroValuesAtCurrentInstant {
@@ -456,7 +456,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<h6>Objective-C</h6>
+<h6><i>Objective-C</i></h6>
 </div>
 ```objective-c
     [motionKit getGyroValuesAtCurrentInstant:1.0 values:^(double x, double y,double z) {
