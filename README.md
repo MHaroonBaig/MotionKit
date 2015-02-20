@@ -361,7 +361,9 @@ if you want to get just a single value of any of the available sensors at a give
 
 ###Accelerometer
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
     motionKit.getAccelerationAtCurrentInstant {
         (x, y, z) -> () in
@@ -380,7 +382,9 @@ if you want to get just a single value of any of the available sensors at a give
 
 ###Gravitational Acceleration
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
     motionKit.getAccelerationAtCurrentInstant {
       (x, y, z) -> () in
@@ -399,7 +403,9 @@ if you want to get just a single value of any of the available sensors at a give
 
 ###Attitude
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
     motionKit.getAttitudeAtCurrentInstant {
       (x, y, z) -> () in
@@ -418,7 +424,9 @@ if you want to get just a single value of any of the available sensors at a give
 
 ###Magnetic Field
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
     motionKit.getMageticFieldAtCurrentInstant {
       (x, y, z) -> () in
