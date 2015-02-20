@@ -28,7 +28,7 @@ import CoreMotion
 }
 
 
-public class MotionKit {
+@objc public class MotionKit {
     
     let manager = CMMotionManager()
     var delegate: MotionKitDelegate?
