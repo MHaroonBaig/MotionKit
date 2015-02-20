@@ -311,40 +311,90 @@ Having that done, you'd probably want to implement a delegate method like this.
 if you want to get just a single value of any of the available sensors at a given time, you could probably use some of the our handy methods provided in MotionKit.
 
 ###Accelerometer
+
+**Swift**
 ```swift
     motionKit.getAccelerationAtCurrentInstant {
         (x, y, z) -> () in
         ....
       }
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getAccelerationAtCurrentInstant:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 ###Gravitational Acceleration
+
+**Swift**
 ```swift
     motionKit.getAccelerationAtCurrentInstant {
       (x, y, z) -> () in
       ....
         }
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getAccelerationAtCurrentInstant:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 ###Attitude
+
+**Swift**
 ```swift
     motionKit.getAttitudeAtCurrentInstant {
       (x, y, z) -> () in
       ....
         }
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getAttitudeAtCurrentInstant:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 ###Magnetic Field
+
+**Swift**
 ```swift
     motionKit.getMageticFieldAtCurrentInstant {
       (x, y, z) -> () in
       ....
         }
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getMageticFieldAtCurrentInstant:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 ###Gyroscope Values
+
+**Swift**
 ```swift
     motionKit.getGyroValuesAtCurrentInstant {
       (x, y, z) -> () in
       ....
         }
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getGyroValuesAtCurrentInstant:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 
 
 #Discussion
