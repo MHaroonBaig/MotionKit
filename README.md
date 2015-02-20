@@ -25,8 +25,13 @@ You can retrieve all the values either by a trailing closure or by a delegate me
 
 ##Initialise
 First, initialise the MotionKit instance. Its a Must.
+**Swift**
 ```swift
     let motionKit = MotionKit()
+```
+**Objective-C**
+```objective-c
+    MotionKit *motionKit = [[NSClassFromString(@"MotionKit") alloc] init];
 ```
 
 ##Getting Accelerometer Values
@@ -38,8 +43,15 @@ You can get the accelerometer values using just a few lines of code.
         //Interval is in seconds. And now you have got the x, y and z values here
         ....
       }
-
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getAccelerometerValuesWithInterval:1.0 values:^(double x, double y,               double z) {
+    // your values here
+    }];
+```
+
 ##Getting Gyroscope Values
 Gyroscope values could be retrieved by the following few lines of code.
 
@@ -49,8 +61,15 @@ Gyroscope values could be retrieved by the following few lines of code.
         //Your processing will go here
         ....
       }
-
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getGyroValues:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 ##Getting Magnetometer Values
 Getting Magnetometer values is as easy as grabbing a cookie.
 
@@ -60,8 +79,15 @@ Getting Magnetometer values is as easy as grabbing a cookie.
         //Do something with the retrieved values
         ....
       }
-
 ```
+
+**Objective-C**
+```objective-c
+    [motionKit getMagnetometerValues:1.0 values:^(double x, double y,double z) {
+    // your values here
+    }];
+```
+
 #Installation
 Embedded frameworks require a minimum deployment target of iOS 8.
 ###Using CocoaPods
