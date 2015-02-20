@@ -33,7 +33,7 @@ First, initialise the MotionKit instance. Its a Must.
     let motionKit = MotionKit()
 ```
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     MotionKit *motionKit = [[NSClassFromString(@"MotionKit") alloc] init];
@@ -54,7 +54,7 @@ You can get the accelerometer values using just a few lines of code.
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getAccelerometerValuesWithInterval:1.0 values:^(double x, double y,               double z) {
@@ -77,7 +77,7 @@ Gyroscope values could be retrieved by the following few lines of code.
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getGyroValues:1.0 values:^(double x, double y,double z) {
@@ -100,7 +100,7 @@ Getting Magnetometer values is as easy as grabbing a cookie.
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getMagnetometerValues:1.0 values:^(double x, double y,double z) {
@@ -165,7 +165,7 @@ All of the values can be retrieved either by individual methods or by getting th
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
 [motionKit getDeviceMotionObjectWithInterval:1.0 values:^(CMDeviceMotion *deviceMotion) {
@@ -191,7 +191,7 @@ You can get the refined and processed userAccelaration through the Device Motion
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getAccelerationFromDeviceMotion:1.0 values:^(double x, double y,double z) {
@@ -214,7 +214,7 @@ Again, you can access it through the Device Motion service as well.
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getGravityAccelerationFromDeviceMotion:1.0 values:^(double x, double y,double z) {
@@ -238,7 +238,7 @@ Interesting, Get it in a magical way.
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getMagneticFieldFromDeviceMotion:1.0 values:^(double x, double y,double z) {
@@ -264,7 +264,7 @@ Interesting, Get it in a magical way.
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getAttitudeFromDeviceMotionWithInterval:1.0 values:^(CMAttitude        *attitude) {
@@ -287,7 +287,7 @@ Interesting, Get it in a magical way.
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getRotationRateFromDeviceMotion:1.0 values:^(double x, double y,double z) {
@@ -372,7 +372,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getAccelerationAtCurrentInstant:1.0 values:^(double x, double y,double z) {
@@ -393,7 +393,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getAccelerationAtCurrentInstant:1.0 values:^(double x, double y,double z) {
@@ -414,7 +414,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getAttitudeAtCurrentInstant:1.0 values:^(double x, double y,double z) {
@@ -435,7 +435,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getMageticFieldAtCurrentInstant:1.0 values:^(double x, double y,double z) {
@@ -456,7 +456,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<b>Objective-C</b>
+<h6>Objective-C</h6>
 </div>
 ```objective-c
     [motionKit getGyroValuesAtCurrentInstant:1.0 values:^(double x, double y,double z) {
