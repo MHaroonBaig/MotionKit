@@ -129,6 +129,8 @@ The deviceMotion object includes:
 All of the values can be retrieved either by individual methods or by getting the deviceMotion object itself.
 
 ###Getting the whole CMDeviceMotion Object
+
+**Swift**
 ```swift
 
     motionKit.getDeviceMotionObject(interval: 1.0){
@@ -144,6 +146,8 @@ All of the values can be retrieved either by individual methods or by getting th
 ```
 ###Getting refined values of Acceleration
 You can get the refined and processed userAccelaration through the Device Motion service by just a few lines of code, either by a Trailing Closure or through Delegation method.
+
+**Swift**
 ```swift
 
     motionKit.getAccelerationFromDeviceMotion(interval: 1.0){
@@ -163,6 +167,8 @@ You can get the refined and processed userAccelaration through the Device Motion
 
 ###Getting Gravitational Acceleration
 Again, you can access it through the Device Motion service as well.
+
+**Swift**
 ```swift
       motionKit.getGravityAccelerationFromDeviceMotion(interval: 1.0) {
           (x, y, z) -> () in
@@ -180,6 +186,8 @@ Again, you can access it through the Device Motion service as well.
 
 ###Getting Magnetic Field around your device
 Interesting, Get it in a magical way.
+
+**Swift**
 ```swift
       motionKit.getMagneticFieldFromDeviceMotion(interval: 1.0) {
         (x, y, z, accuracy) -> () in
@@ -197,6 +205,8 @@ Interesting, Get it in a magical way.
 ```
 
 ###Getting the Attitude metrics
+
+**Swift**
 ```swift
       motionKit.getAttitudeFromDeviceMotion(interval: 1.0) {
         (attitude) -> () in
@@ -218,6 +228,7 @@ Interesting, Get it in a magical way.
 
 ###Getting Rotation Rate of your device
 
+**Swift**
 ```swift
       motionKit.getRotationRateFromDeviceMotion(interval: 1.0) {
         (x, y, z) -> () in
