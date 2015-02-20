@@ -34,7 +34,7 @@ import CoreMotion
     var delegate: MotionKitDelegate?
     
     /*
-    *  init:void:
+    *  init:void: 
     *
     *  Discussion:
     *   Initialises the MotionKit class and throw a Log with a timestamp.
