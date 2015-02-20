@@ -26,7 +26,9 @@ You can retrieve all the values either by a trailing closure or by a delegate me
 ##Initialise
 First, initialise the MotionKit instance. Its a Must.
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
     let motionKit = MotionKit()
 ```
@@ -40,7 +42,9 @@ First, initialise the MotionKit instance. Its a Must.
 ##Getting Accelerometer Values
 You can get the accelerometer values using just a few lines of code.
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
     motionKit.getAccelerometerValues(interval: 1.0){
         (x, y, z) in
@@ -61,7 +65,9 @@ You can get the accelerometer values using just a few lines of code.
 ##Getting Gyroscope Values
 Gyroscope values could be retrieved by the following few lines of code.
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
     motionKit.getGyroValues(interval: 1.0){
         (x, y, z) in
@@ -82,7 +88,9 @@ Gyroscope values could be retrieved by the following few lines of code.
 ##Getting Magnetometer Values
 Getting Magnetometer values is as easy as grabbing a cookie.
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
     motionKit.getMagnetometerValues(interval: 1.0){
         (x, y, z) in
@@ -139,7 +147,9 @@ All of the values can be retrieved either by individual methods or by getting th
 
 ###Getting the whole CMDeviceMotion Object
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
 
     motionKit.getDeviceMotionObject(interval: 1.0){
@@ -165,17 +175,19 @@ All of the values can be retrieved either by individual methods or by getting th
 ```
 
 ###Getting refined values of Acceleration
+
 You can get the refined and processed userAccelaration through the Device Motion service by just a few lines of code, either by a Trailing Closure or through Delegation method.
 
-**Swift**
-```swift
+<div align="right">
+<b>Swift</b>
+</div>
 
+```swift
     motionKit.getAccelerationFromDeviceMotion(interval: 1.0){
         (x, y, z) -> () in
           // Grab the x, y and z values
           ....
         }
-
 ```
 
 <div align="right">
@@ -190,7 +202,9 @@ You can get the refined and processed userAccelaration through the Device Motion
 ###Getting Gravitational Acceleration
 Again, you can access it through the Device Motion service as well.
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
       motionKit.getGravityAccelerationFromDeviceMotion(interval: 1.0) {
           (x, y, z) -> () in
@@ -211,7 +225,9 @@ Again, you can access it through the Device Motion service as well.
 ###Getting Magnetic Field around your device
 Interesting, Get it in a magical way.
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
       motionKit.getMagneticFieldFromDeviceMotion(interval: 1.0) {
         (x, y, z, accuracy) -> () in
@@ -232,7 +248,9 @@ Interesting, Get it in a magical way.
 
 ###Getting the Attitude metrics
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
       motionKit.getAttitudeFromDeviceMotion(interval: 1.0) {
         (attitude) -> () in
@@ -256,7 +274,9 @@ Interesting, Get it in a magical way.
 
 ###Getting Rotation Rate of your device
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
       motionKit.getRotationRateFromDeviceMotion(interval: 1.0) {
         (x, y, z) -> () in
@@ -417,7 +437,9 @@ if you want to get just a single value of any of the available sensors at a give
 
 ###Gyroscope Values
 
-**Swift**
+<div align="right">
+<b>Swift</b>
+</div>
 ```swift
     motionKit.getGyroValuesAtCurrentInstant {
       (x, y, z) -> () in
