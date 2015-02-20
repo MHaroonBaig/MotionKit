@@ -25,6 +25,7 @@ You can retrieve all the values either by a trailing closure or by a delegate me
 
 ##Initialise
 First, initialise the MotionKit instance. Its a Must.
+
 **Swift**
 ```swift
     let motionKit = MotionKit()
@@ -37,6 +38,7 @@ First, initialise the MotionKit instance. Its a Must.
 ##Getting Accelerometer Values
 You can get the accelerometer values using just a few lines of code.
 
+**Swift**
 ```swift
     motionKit.getAccelerometerValues(interval: 1.0){
         (x, y, z) in
@@ -55,6 +57,7 @@ You can get the accelerometer values using just a few lines of code.
 ##Getting Gyroscope Values
 Gyroscope values could be retrieved by the following few lines of code.
 
+**Swift**
 ```swift
     motionKit.getGyroValues(interval: 1.0){
         (x, y, z) in
