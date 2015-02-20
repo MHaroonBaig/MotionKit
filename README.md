@@ -27,7 +27,7 @@ You can retrieve all the values either by a trailing closure or by a delegate me
 First, initialise the MotionKit instance. Its a Must.
 
 <div align="right" style="color:#FE834C">
-<b>Swift</b>
+<b color = "FE834C">Swift</b>
 </div>
 ```swift
     let motionKit = MotionKit()
