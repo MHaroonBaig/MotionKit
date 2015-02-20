@@ -67,7 +67,7 @@ Embedded frameworks require a minimum deployment target of iOS 8.
 ###Using CocoaPods
 Just add this to your Podfile.
 ```ruby
-pod 'MotionKit', '~> 0.6'
+pod 'MotionKit'
 ```
 Note that you have to use CocoaPods version 0.36, the pre-released version which supports swift. If you don't already have it, you can grab it with a single command.
 ```bash
