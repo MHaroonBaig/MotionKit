@@ -398,7 +398,7 @@ if you want to get just a single value of any of the available sensors at a give
 ```
 
 <div align="right">
-<b>Objective-C**</b>
+<b>Objective-C</b>
 </div>
 ```objective-c
     [motionKit getGyroValuesAtCurrentInstant:1.0 values:^(double x, double y,double z) {
