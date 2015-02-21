@@ -1,0 +1,19 @@
+PODS:
+  - MotionKit (0.7)
+
+DEPENDENCIES:
+  - MotionKit (from `https://github.com/MHaroonBaig/MotionKit.git`)
+
+EXTERNAL SOURCES:
+  MotionKit:
+    :git: https://github.com/MHaroonBaig/MotionKit.git
+
+CHECKOUT OPTIONS:
+  MotionKit:
+    :commit: 70238a68f16ec55082f8779a4365f69cd7af2f24
+    :git: https://github.com/MHaroonBaig/MotionKit.git
+
+SPEC CHECKSUMS:
+  MotionKit: 05f62b8cf0ff804a2ee0fc968ef244ba0810e73b
+
+COCOAPODS: 0.36.0.beta.2

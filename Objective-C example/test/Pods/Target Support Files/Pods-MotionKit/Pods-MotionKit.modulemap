@@ -1,0 +1,6 @@
+framework module MotionKit {
+  umbrella header "Pods-MotionKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
