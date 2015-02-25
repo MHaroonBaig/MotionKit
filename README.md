@@ -1,5 +1,7 @@
 #[MotionKit] (http://goo.gl/bpXBlO) — The missing iOS wrapper :notes:
 
+[![Join the chat at https://gitter.im/MHaroonBaig/MotionKit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MHaroonBaig/MotionKit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
 [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
