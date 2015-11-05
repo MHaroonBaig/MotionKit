@@ -63,17 +63,18 @@ public class MotionKit {
             manager.startAccelerometerUpdatesToQueue(NSOperationQueue()) {
                 (data: CMAccelerometerData?, error: NSError?) -> Void in
                 
-                
                 if let isError = error {
                     NSLog("Error: %@", isError)
                 }
-                valX = data!.acceleration.x
-                valY = data!.acceleration.y
-                valZ = data!.acceleration.z
-                
-                if values != nil{
-                    values!(x: valX,y: valY,z: valZ)
+                guard let data = data else {
+                    return
                 }
+                
+                valX = data.acceleration.x
+                valY = data.acceleration.y
+                valZ = data.acceleration.z
+                
+                values?(x: valX,y: valY,z: valZ)
                 let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
                 self.delegate?.retrieveAccelerometerValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
@@ -108,15 +109,17 @@ public class MotionKit {
                 if let isError = error{
                     NSLog("Error: %@", isError)
                 }
-                valX = data!.rotationRate.x
-                valY = data!.rotationRate.y
-                valZ = data!.rotationRate.z
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ)
+                guard let data = data else {
+                    return
                 }
+                
+                valX = data.rotationRate.x
+                valY = data.rotationRate.y
+                valZ = data.rotationRate.z
+                
+                values?(x: valX, y: valY, z: valZ)
                 let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                self.delegate?.retrieveGyroscopeValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                self.delegate?.retrieveGyroscopeValues?(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
             
             
@@ -144,18 +147,20 @@ public class MotionKit {
             manager.startMagnetometerUpdatesToQueue(NSOperationQueue()) {
                 (data: CMMagnetometerData?, error: NSError?) -> Void in
                 
-                if let isError = error{
+                if let isError = error {
                     NSLog("Error: %@", isError)
                 }
-                valX = data!.magneticField.x
-                valY = data!.magneticField.y
-                valZ = data!.magneticField.z
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ)
+                guard let data = data else {
+                    return
                 }
+                
+                valX = data.magneticField.x
+                valY = data.magneticField.y
+                valZ = data.magneticField.z
+                
+                values?(x: valX, y: valY, z: valZ)
                 let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                self.delegate?.retrieveMagnetometerValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+                self.delegate?.retrieveMagnetometerValues?(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
             
         } else {
@@ -181,13 +186,15 @@ public class MotionKit {
             manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion?, error: NSError?) -> Void in
                 
-                if let isError = error{
+                if let isError = error {
                     NSLog("Error: %@", isError)
                 }
-                if values != nil{
-                    values!(deviceMotion: data!)
+                guard let data = data else {
+                    return
                 }
-                self.delegate?.retrieveDeviceMotionObject!(data!)
+                
+                values?(deviceMotion: data)
+                self.delegate?.retrieveDeviceMotionObject?(data)
             }
             
             
@@ -211,18 +218,19 @@ public class MotionKit {
             manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion?, error: NSError?) -> Void in
                 
-                if let isError = error{
+                if let isError = error {
                     NSLog("Error: %@", isError)
                 }
-                valX = data!.userAcceleration.x
-                valY = data!.userAcceleration.y
-                valZ = data!.userAcceleration.z
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ)
+                guard let data = data else {
+                    return
                 }
                 
-                self.delegate?.getAccelerationValFromDeviceMotion!(valX, y: valY, z: valZ)
+                valX = data.userAcceleration.x
+                valY = data.userAcceleration.y
+                valZ = data.userAcceleration.z
+                
+                values?(x: valX, y: valY, z: valZ)
+                self.delegate?.getAccelerationValFromDeviceMotion?(valX, y: valY, z: valZ)
             }
             
         } else {
@@ -246,19 +254,21 @@ public class MotionKit {
             manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion?, error: NSError?) -> Void in
                 
-                if let isError = error{
+                if let isError = error {
                     NSLog("Error: %@", isError)
                 }
-                valX = data!.gravity.x
-                valY = data!.gravity.y
-                valZ = data!.gravity.z
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ)
+                guard let data = data else {
+                    return
                 }
                 
-                _ = sqrt(valX * valX + valY * valY + valZ * valZ)
-                self.delegate?.getGravityAccelerationValFromDeviceMotion!(valX, y: valY, z: valZ)
+                valX = data.gravity.x
+                valY = data.gravity.y
+                valZ = data.gravity.z
+                
+                
+                values?(x: valX, y: valY, z: valZ)
+//                _ = sqrt(valX * valX + valY * valY + valZ * valZ)
+                self.delegate?.getGravityAccelerationValFromDeviceMotion?(valX, y: valY, z: valZ)
             }
             
             
@@ -281,14 +291,15 @@ public class MotionKit {
             manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion?, error: NSError?) -> Void in
                 
-                if let isError = error{
+                if let isError = error {
                     NSLog("Error: %@", isError)
                 }
-                if values != nil{
-                    values!(attitude: data!.attitude)
+                guard let data = data else {
+                    return
                 }
                 
-                self.delegate?.getAttitudeFromDeviceMotion!(data!.attitude)
+                values?(attitude: data.attitude)
+                self.delegate?.getAttitudeFromDeviceMotion?(data.attitude)
             }
             
             
@@ -312,19 +323,20 @@ public class MotionKit {
             manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion?, error: NSError?) -> Void in
                 
-                if let isError = error{
+                if let isError = error {
                     NSLog("Error: %@", isError)
                 }
-                valX = data!.rotationRate.x
-                valY = data!.rotationRate.y
-                valZ = data!.rotationRate.z
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ)
+                guard let data = data else {
+                    return
                 }
                 
-                _ = sqrt(valX * valX + valY * valY + valZ * valZ)
-                self.delegate?.getRotationRateFromDeviceMotion!(valX, y: valY, z: valZ)
+                valX = data.rotationRate.x
+                valY = data.rotationRate.y
+                valZ = data.rotationRate.z
+                
+                values?(x: valX, y: valY, z: valZ)
+//                _ = sqrt(valX * valX + valY * valY + valZ * valZ)
+                self.delegate?.getRotationRateFromDeviceMotion?(valX, y: valY, z: valZ)
             }
             
             
@@ -351,20 +363,20 @@ public class MotionKit {
             manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion?, error: NSError?) -> Void in
                 
-                if let isError = error{
+                if let isError = error {
                     NSLog("Error: %@", isError)
                 }
-                valX = data!.magneticField.field.x
-                valY = data!.magneticField.field.y
-                valZ = data!.magneticField.field.z
-                valAccuracy = data!.magneticField.accuracy.rawValue
-                
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ, accuracy: valAccuracy)
+                guard let data = data else {
+                    return
                 }
                 
-                self.delegate?.getMagneticFieldFromDeviceMotion!(valX, y: valY, z: valZ)
+                valX = data.magneticField.field.x
+                valY = data.magneticField.field.y
+                valZ = data.magneticField.field.z
+                valAccuracy = data.magneticField.accuracy.rawValue
+                
+                values?(x: valX, y: valY, z: valZ, accuracy: valAccuracy)
+                self.delegate?.getMagneticFieldFromDeviceMotion?(valX, y: valY, z: valZ)
             }
             
             
