@@ -1,0 +1,15 @@
+disabled_rules:
+  - variable_name
+  - line_length
+  - valid_docs
+  - todo
+  - file_length
+  - function_body_length
+  - force_cast
+
+included:
+  - MotionKit
+  - MotionKitTests
+
+excluded:
+   - Pods
