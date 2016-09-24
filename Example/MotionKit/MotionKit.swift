@@ -3,7 +3,7 @@
 //  MotionKit
 //
 //  Created by Haroon on 14/02/2015.
-//  Launched under the Creative Commons License. You're free to use MotionKit. 
+//  Launched under the Creative Commons License. You're free to use MotionKit.
 //
 //  The original Github repository is https://github.com/MHaroonBaig/MotionKit
 //  The official blog post and documentation is https://medium.com/@PyBaig/motionkit-the-missing-ios-coremotion-wrapper-written-in-swift-99fcb83355d0
@@ -15,10 +15,10 @@ import CoreMotion
 //_______________________________________________________________________________________________________________
 // this helps retrieve values from the sensors.
 @objc protocol MotionKitDelegate {
-    optional  func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
-    optional  func retrieveGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
+    optional  func retrieveAccelerometerValues (x: Double, y: Double, z: Double, absoluteValue: Double)
+    optional  func retrieveGyroscopeValues     (x: Double, y: Double, z: Double, absoluteValue: Double)
     optional  func retrieveDeviceMotionObject  (deviceMotion: CMDeviceMotion)
-    optional  func retrieveMagnetometerValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
+    optional  func retrieveMagnetometerValues  (x: Double, y: Double, z: Double, absoluteValue: Double)
     
     optional  func getAccelerationValFromDeviceMotion        (x: Double, y:Double, z:Double)
     optional  func getGravityAccelerationValFromDeviceMotion (x: Double, y:Double, z:Double)
@@ -39,7 +39,7 @@ public class MotionKit {
     *  Discussion:
     *   Initialises the MotionKit class and throw a Log with a timestamp.
     */
-    public init(){
+    public init() {
         NSLog("MotionKit has been initialised successfully")
     }
     
@@ -52,7 +52,7 @@ public class MotionKit {
     *   given NSOperationQueue will be cancelled. You can access the retrieved values either by a
     *   Trailing Closure or through a Delgate.
     */
-    public func getAccelerometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z: Double) -> ())? ){
+    public func getAccelerometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z: Double) -> ())? ) {
         
         var valX: Double!
         var valY: Double!
@@ -127,14 +127,14 @@ public class MotionKit {
     *   You can access the retrieved values either by a Trailing Closure or through a Delegate.
     */
     @availability(iOS, introduced=5.0)
-    public func getMagnetometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y:Double, z:Double) -> ())? ){
+    public func getMagnetometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y:Double, z:Double) -> ())? ) {
         
         var valX: Double!
         var valY: Double!
         var valZ: Double!
         if manager.magnetometerAvailable {
             manager.magnetometerUpdateInterval = interval
-            manager.startMagnetometerUpdatesToQueue(NSOperationQueue()){
+            manager.startMagnetometerUpdatesToQueue(NSOperationQueue()) {
                 (data: CMMagnetometerData!, error: NSError!) in
                 
                 if let isError = error{
@@ -171,7 +171,7 @@ public class MotionKit {
         
         if manager.deviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion!, error: NSError!) in
                 
                 if let isError = error{
@@ -200,7 +200,7 @@ public class MotionKit {
         var valZ: Double!
         if manager.deviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion!, error: NSError!) in
                 
                 if let isError = error{
@@ -234,7 +234,7 @@ public class MotionKit {
         var valZ: Double!
         if manager.deviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion!, error: NSError!) in
                 
                 if let isError = error{
@@ -267,7 +267,7 @@ public class MotionKit {
         
         if manager.deviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion!, error: NSError!) in
                 
                 if let isError = error{
@@ -297,7 +297,7 @@ public class MotionKit {
         var valZ: Double!
         if manager.deviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion!, error: NSError!) in
                 
                 if let isError = error{
@@ -334,7 +334,7 @@ public class MotionKit {
         var valAccuracy: Int32!
         if manager.deviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()) {
                 (data: CMDeviceMotion!, error: NSError!) in
                 
                 if let isError = error{
@@ -358,9 +358,8 @@ public class MotionKit {
         }
     }
     
-    /*  MARK :- DEVICE MOTION APPROACH ENDS HERE    */
-    
-    
+    // MARK :- DEVICE MOTION APPROACH ENDS HERE
+
     /*
     *   From the methods hereafter, the sensor values could be retrieved at
     *   a particular instant, whenever needed, through a trailing closure.
@@ -368,53 +367,51 @@ public class MotionKit {
     
     /*  MARK :- INSTANTANIOUS METHODS START HERE  */
     
-    public func getAccelerationAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+    public func getAccelerationAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()) {
         self.getAccelerationFromDeviceMotion(interval: 0.5) { (x, y, z) -> () in
-            values(x: x,y: y,z: z)
+            values(x: x, y: y, z: z)
             self.stopDeviceMotionUpdates()
         }
     }
-    
-    public func getGravitationalAccelerationAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+
+    public func getGravitationalAccelerationAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()) {
         self.getGravityAccelerationFromDeviceMotion(interval: 0.5) { (x, y, z) -> () in
-            values(x: x,y: y,z: z)
+            values(x: x, y: y, z: z)
             self.stopDeviceMotionUpdates()
         }
     }
-    
-    public func getAttitudeAtCurrentInstant (values: (attitude: CMAttitude) -> ()){
+
+    public func getAttitudeAtCurrentInstant (values: (attitude: CMAttitude) -> ()) {
         self.getAttitudeFromDeviceMotion(interval: 0.5) { (attitude) -> () in
             values(attitude: attitude)
             self.stopDeviceMotionUpdates()
         }
-    
+
     }
-    
-    public func getMageticFieldAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+
+    public func getMageticFieldAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()) {
         self.getMagneticFieldFromDeviceMotion(interval: 0.5) { (x, y, z, accuracy) -> () in
             values(x: x,y: y,z: z)
             self.stopDeviceMotionUpdates()
         }
     }
-    
-    public func getGyroValuesAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+
+    public func getGyroValuesAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()) {
         self.getRotationRateFromDeviceMotion(interval: 0.5) { (x, y, z) -> () in
             values(x: x,y: y,z: z)
             self.stopDeviceMotionUpdates()
         }
     }
     
-    /*  MARK :- INSTANTANIOUS METHODS END HERE  */
-    
-    
-    
+    // MARK :- INSTANTANIOUS METHODS END HERE
+
     /*
     *  stopAccelerometerUpdates
     *
     *  Discussion:
     *   Stop accelerometer updates.
     */
-    public func stopAccelerometerUpdates(){
+    public func stopAccelerometerUpdates() {
         self.manager.stopAccelerometerUpdates()
         NSLog("Accelaration Updates Status - Stopped")
     }
@@ -425,7 +422,7 @@ public class MotionKit {
     *  Discussion:
     *   Stops gyro updates.
     */
-    public func stopGyroUpdates(){
+    public func stopGyroUpdates() {
         self.manager.stopGyroUpdates()
         NSLog("Gyroscope Updates Status - Stopped")
     }

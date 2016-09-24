@@ -127,6 +127,7 @@
 				75FDED511A9541F800283A97 /* Frameworks */,
 				75FDED521A9541F800283A97 /* Headers */,
 				75FDED531A9541F800283A97 /* Resources */,
+				40E6F3AB1D972ADB00E92C6F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -167,6 +168,7 @@
 					75FDED541A9541F800283A97 = {
 						CreatedOnToolsVersion = 6.1.1;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					75FDED5F1A9541F800283A97 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -208,6 +210,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40E6F3AB1D972ADB00E92C6F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		75FDED501A9541F800283A97 /* Sources */ = {
@@ -333,7 +351,7 @@
 		75FDED6C1A9541F800283A97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -351,7 +369,7 @@
 		75FDED6D1A9541F800283A97 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

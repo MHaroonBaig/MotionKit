@@ -12,7 +12,7 @@ import MotionKit
 class ViewController: UIViewController {
 
     let motionKit = MotionKit()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         motionKit.getAccelerometerValues(interval: 1.0) { (x, y, z) -> () in
@@ -28,4 +28,3 @@ class ViewController: UIViewController {
 
 
 }
-
