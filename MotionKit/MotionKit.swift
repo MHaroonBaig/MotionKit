@@ -30,7 +30,7 @@ import CoreMotion
 @objc open class MotionKit: NSObject {
 
     let manager = CMMotionManager()
-    public var delegate: MotionKitDelegate?
+    open var delegate: MotionKitDelegate?
 
     /*
     *  init:void:
