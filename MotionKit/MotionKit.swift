@@ -30,7 +30,7 @@ import CoreMotion
 }
 
 
-@objc(MotionKit) public class MotionKit :NSObject{
+@objc(MotionKit) open class MotionKit :NSObject{
 
     let manager = CMMotionManager()
     var delegate: MotionKitDelegate?
@@ -54,7 +54,7 @@ import CoreMotion
     *   given NSOperationQueue will be cancelled. You can access the retrieved values either by a
     *   Trailing Closure or through a Delgate.
     */
-    public func getAccelerometerValues (_ interval: TimeInterval = 0.1, values: ((_ x: Double, _ y: Double, _ z: Double) -> ())? ){
+    open func getAccelerometerValues (_ interval: TimeInterval = 0.1, values: ((_ x: Double, _ y: Double, _ z: Double) -> ())? ){
         var valX: Double!
         var valY: Double!
         var valZ: Double!
@@ -90,7 +90,7 @@ import CoreMotion
     *   given NSOperationQueue will be cancelled. You can access the retrieved values either by a
     *   Trailing Closure or through a Delegate.
     */
-    public func getGyroValues (_ interval: TimeInterval = 0.1, values: ((_ x: Double, _ y: Double, _ z:Double) -> ())? ) {
+    open func getGyroValues (_ interval: TimeInterval = 0.1, values: ((_ x: Double, _ y: Double, _ z:Double) -> ())? ) {
 
         var valX: Double!
         var valY: Double!
@@ -127,7 +127,7 @@ import CoreMotion
     *   You can access the retrieved values either by a Trailing Closure or through a Delegate.
     */
     @available(iOS, introduced: 5.0)
-    public func getMagnetometerValues (_ interval: TimeInterval = 0.1, values: ((_ x: Double, _ y:Double, _ z:Double) -> ())? ){
+    open func getMagnetometerValues (_ interval: TimeInterval = 0.1, values: ((_ x: Double, _ y:Double, _ z:Double) -> ())? ){
 
         var valX: Double!
         var valY: Double!
@@ -167,7 +167,7 @@ import CoreMotion
     *   attitudeReferenceFrame to determine this. You can access the retrieved values either by a
     *   Trailing Closure or through a Delegate.
     */
-    public func getDeviceMotionObject (_ interval: TimeInterval = 0.1, values: ((_ deviceMotion: CMDeviceMotion) -> ())? ) {
+    open func getDeviceMotionObject (_ interval: TimeInterval = 0.1, values: ((_ deviceMotion: CMDeviceMotion) -> ())? ) {
 
         if manager.isDeviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
@@ -193,7 +193,7 @@ import CoreMotion
     *   getAccelerationFromDeviceMotion:interval:values:
     *   You can retrieve the processed user accelaration data from the device motion from this method.
     */
-    public func getAccelerationFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double) -> ())? ) {
+    open func getAccelerationFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double) -> ())? ) {
 
         var valX: Double!
         var valY: Double!
@@ -227,7 +227,7 @@ import CoreMotion
     *   You can retrieve the processed gravitational accelaration data from the device motion from this
     *   method.
     */
-    public func getGravityAccelerationFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double) -> ())? ) {
+    open func getGravityAccelerationFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double) -> ())? ) {
 
         var valX: Double!
         var valY: Double!
@@ -263,7 +263,7 @@ import CoreMotion
     *   You can retrieve the processed attitude data from the device motion from this
     *   method.
     */
-    public func getAttitudeFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ attitude: CMAttitude) -> ())? ) {
+    open func getAttitudeFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ attitude: CMAttitude) -> ())? ) {
 
         if manager.isDeviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
@@ -290,7 +290,7 @@ import CoreMotion
     *   You can retrieve the processed rotation data from the device motion from this
     *   method.
     */
-    public func getRotationRateFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double) -> ())? ) {
+    open func getRotationRateFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double) -> ())? ) {
 
         var valX: Double!
         var valY: Double!
@@ -326,7 +326,7 @@ import CoreMotion
     *   You can retrieve the processed magnetic field data from the device motion from this
     *   method.
     */
-    public func getMagneticFieldFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double, _ accuracy: Int32) -> ())? ) {
+    open func getMagneticFieldFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double, _ accuracy: Int32) -> ())? ) {
 
         var valX: Double!
         var valY: Double!
@@ -367,35 +367,35 @@ import CoreMotion
 
     /*  MARK :- INSTANTANIOUS METHODS START HERE  */
 
-    public func getAccelerationAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
+    open func getAccelerationAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
         self.getAccelerationFromDeviceMotion(0.5) { (x, y, z) -> () in
             values(x, y, z)
             self.stopDeviceMotionUpdates()
         }
     }
 
-    public func getGravitationalAccelerationAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
+    open func getGravitationalAccelerationAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
         self.getGravityAccelerationFromDeviceMotion(0.5) { (x, y, z) -> () in
             values(x, y, z)
             self.stopDeviceMotionUpdates()
         }
     }
 
-    public func getAttitudeAtCurrentInstant (_ values: @escaping (_ attitude: CMAttitude) -> ()){
+    open func getAttitudeAtCurrentInstant (_ values: @escaping (_ attitude: CMAttitude) -> ()){
         self.getAttitudeFromDeviceMotion(0.5) { (attitude) -> () in
             values(attitude)
             self.stopDeviceMotionUpdates()
         }
     }
 
-    public func getMageticFieldAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
+    open func getMageticFieldAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
         self.getMagneticFieldFromDeviceMotion(0.5) { (x, y, z, accuracy) -> () in
             values(x, y, z)
             self.stopDeviceMotionUpdates()
         }
     }
 
-    public func getGyroValuesAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
+    open func getGyroValuesAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
         self.getRotationRateFromDeviceMotion(0.5) { (x, y, z) -> () in
             values(x, y, z)
             self.stopDeviceMotionUpdates()
@@ -412,7 +412,7 @@ import CoreMotion
     *  Discussion:
     *   Stop accelerometer updates.
     */
-    public func stopAccelerometerUpdates(){
+    open func stopAccelerometerUpdates(){
         self.manager.stopAccelerometerUpdates()
         print("Accelaration Updates Status - Stopped")
     }
@@ -423,7 +423,7 @@ import CoreMotion
     *  Discussion:
     *   Stops gyro updates.
     */
-    public func stopGyroUpdates(){
+    open func stopGyroUpdates(){
         self.manager.stopGyroUpdates()
         print("Gyroscope Updates Status - Stopped")
     }
@@ -434,7 +434,7 @@ import CoreMotion
     *  Discussion:
     *   Stops device motion updates.
     */
-    public func stopDeviceMotionUpdates() {
+    open func stopDeviceMotionUpdates() {
         self.manager.stopDeviceMotionUpdates()
         print("Device Motion Updates Status - Stopped")
     }
@@ -446,7 +446,7 @@ import CoreMotion
     *   Stops magnetometer updates.
     */
     @available(iOS, introduced: 5.0)
-    public func stopmagnetometerUpdates() {
+    open func stopmagnetometerUpdates() {
         self.manager.stopMagnetometerUpdates()
         print("Magnetometer Updates Status - Stopped")
     }
