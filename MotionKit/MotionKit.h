@@ -2,8 +2,8 @@
 //  MotionKit.h
 //  MotionKit
 //
-//  Created by Haroon on 19/02/2015.
-//  Copyright (c) 2015 MotionKit. All rights reserved.
+//  Created by Pawel Kania on 01/10/2016.
+//
 //
 
 #import <UIKit/UIKit.h>

@@ -3,10 +3,12 @@
 //  MotionKit
 //
 //  Created by Haroon on 14/02/2015.
-//  Launched under the Creative Commons License. You're free to use MotionKit. 
+//  Launched under the Creative Commons License. You're free to use MotionKit.
 //
 //  The original Github repository is https://github.com/MHaroonBaig/MotionKit
 //  The official blog post and documentation is https://medium.com/@PyBaig/motionkit-the-missing-ios-coremotion-wrapper-written-in-swift-99fcb83355d0
+//
+// Modified by Yang Liu <gloolar@gmail.com> on 21/09/2016
 //
 
 import Foundation
@@ -15,34 +17,34 @@ import CoreMotion
 //_______________________________________________________________________________________________________________
 // this helps retrieve values from the sensors.
 @objc protocol MotionKitDelegate {
-    optional  func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
-    optional  func retrieveGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
-    optional  func retrieveDeviceMotionObject  (deviceMotion: CMDeviceMotion)
-    optional  func retrieveMagnetometerValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
-    
-    optional  func getAccelerationValFromDeviceMotion        (x: Double, y:Double, z:Double)
-    optional  func getGravityAccelerationValFromDeviceMotion (x: Double, y:Double, z:Double)
-    optional  func getRotationRateFromDeviceMotion           (x: Double, y:Double, z:Double)
-    optional  func getMagneticFieldFromDeviceMotion          (x: Double, y:Double, z:Double)
-    optional  func getAttitudeFromDeviceMotion               (attitude: CMAttitude)
+    @objc optional  func retrieveAccelerometerValues (_ x: Double, y:Double, z:Double, absoluteValue: Double)
+    @objc optional  func retrieveGyroscopeValues     (_ x: Double, y:Double, z:Double, absoluteValue: Double)
+    @objc optional  func retrieveDeviceMotionObject  (_ deviceMotion: CMDeviceMotion)
+    @objc optional  func retrieveMagnetometerValues  (_ x: Double, y:Double, z:Double, absoluteValue: Double)
+
+    @objc optional  func getAccelerationValFromDeviceMotion        (_ x: Double, y:Double, z:Double)
+    @objc optional  func getGravityAccelerationValFromDeviceMotion (_ x: Double, y:Double, z:Double)
+    @objc optional  func getRotationRateFromDeviceMotion           (_ x: Double, y:Double, z:Double)
+    @objc optional  func getMagneticFieldFromDeviceMotion          (_ x: Double, y:Double, z:Double)
+    @objc optional  func getAttitudeFromDeviceMotion               (_ attitude: CMAttitude)
 }
 
 
-@objc(MotionKit) public class MotionKit :NSObject{
-    
+@objc(MotionKit) open class MotionKit :NSObject{
+
     let manager = CMMotionManager()
     var delegate: MotionKitDelegate?
-    
+
     /*
-    *  init:void: 
+    *  init:void:
     *
     *  Discussion:
     *   Initialises the MotionKit class and throw a Log with a timestamp.
     */
     public override init(){
-        NSLog("MotionKit has been initialised successfully")
+        print("MotionKit has been initialised successfully")
     }
-    
+
     /*
     *  getAccelerometerValues:interval:values:
     *
@@ -52,33 +54,33 @@ import CoreMotion
     *   given NSOperationQueue will be cancelled. You can access the retrieved values either by a
     *   Trailing Closure or through a Delgate.
     */
-    public func getAccelerometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z: Double) -> ())? ){
+    open func getAccelerometerValues (_ interval: TimeInterval = 0.1, values: ((_ x: Double, _ y: Double, _ z: Double) -> ())? ){
         var valX: Double!
         var valY: Double!
         var valZ: Double!
-        if manager.accelerometerAvailable {
+        if manager.isAccelerometerAvailable {
             manager.accelerometerUpdateInterval = interval
-            manager.startAccelerometerUpdatesToQueue(NSOperationQueue(), withHandler: {
+            manager.startAccelerometerUpdates(to: OperationQueue(), withHandler: {
                 (data, error) in
-                
-                if let isError = error {
-                    NSLog("Error: %@", isError)
+
+                if error != nil {
+                    print("Error: %@", error)
                 }
                 valX = data!.acceleration.x
                 valY = data!.acceleration.y
                 valZ = data!.acceleration.z
-                
-                if values != nil{
-                    values!(x: valX,y: valY,z: valZ)
+
+                if values != nil {
+                    values!(valX, valY, valZ)
                 }
-                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
+                let absoluteVal = sqrt(Double(valX * valX + valY * valY) + valZ * valZ)
                 self.delegate?.retrieveAccelerometerValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             })
         } else {
-            NSLog("The Accelerometer is not available")
+            print("The Accelerometer is not available")
         }
     }
-    
+
     /*
     *  getGyroValues:interval:values:
     *
@@ -88,35 +90,35 @@ import CoreMotion
     *   given NSOperationQueue will be cancelled. You can access the retrieved values either by a
     *   Trailing Closure or through a Delegate.
     */
-    public func getGyroValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y: Double, z:Double) -> ())? ) {
-        
+    open func getGyroValues (_ interval: TimeInterval = 0.1, values: ((_ x: Double, _ y: Double, _ z:Double) -> ())? ) {
+
         var valX: Double!
         var valY: Double!
         var valZ: Double!
-        if manager.gyroAvailable{
+        if manager.isGyroAvailable{
             manager.gyroUpdateInterval = interval
-            manager.startGyroUpdatesToQueue(NSOperationQueue(), withHandler: {
+            manager.startGyroUpdates(to: OperationQueue(), withHandler: {
                 (data, error) in
-                
-                if let isError = error{
-                    NSLog("Error: %@", isError)
+
+                if error != nil {
+                    print("Error: %@", error)
                 }
                 valX = data!.rotationRate.x
                 valY = data!.rotationRate.y
                 valZ = data!.rotationRate.z
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ)
+
+                if values != nil {
+                    values!(valX, valY, valZ)
                 }
-                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
+                let absoluteVal = sqrt(Double(valX * valX + valY * valY) + valZ * valZ)
                 self.delegate?.retrieveGyroscopeValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             })
-            
+
         } else {
-            NSLog("The Gyroscope is not available")
+            print("The Gyroscope is not available")
         }
     }
-    
+
     /*
     *  getMagnetometerValues:interval:values:
     *
@@ -124,38 +126,38 @@ import CoreMotion
     *   Starts magnetometer updates, providing data to the given handler through the given queue.
     *   You can access the retrieved values either by a Trailing Closure or through a Delegate.
     */
-    @available(iOS, introduced=5.0)
-    public func getMagnetometerValues (interval: NSTimeInterval = 0.1, values: ((x: Double, y:Double, z:Double) -> ())? ){
-        
+    @available(iOS, introduced: 5.0)
+    open func getMagnetometerValues (_ interval: TimeInterval = 0.1, values: ((_ x: Double, _ y:Double, _ z:Double) -> ())? ){
+
         var valX: Double!
         var valY: Double!
         var valZ: Double!
-        if manager.magnetometerAvailable {
+        if manager.isMagnetometerAvailable {
             manager.magnetometerUpdateInterval = interval
-            manager.startMagnetometerUpdatesToQueue(NSOperationQueue()){
+            manager.startMagnetometerUpdates(to: OperationQueue()){
                 (data, error) in
-                
-                if let isError = error{
-                    NSLog("Error: %@", isError)
+
+                if error != nil {
+                    print("Error: %@", error)
                 }
                 valX = data!.magneticField.x
                 valY = data!.magneticField.y
                 valZ = data!.magneticField.z
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ)
+
+                if values != nil {
+                    values!(valX, valY, valZ)
                 }
-                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
+                let absoluteVal = sqrt(Double(valX * valX + valY * valY) + valZ * valZ)
                 self.delegate?.retrieveMagnetometerValues!(valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
-            
+
         } else {
-            NSLog("Magnetometer is not available")
+            print("Magnetometer is not available")
         }
     }
-    
+
     /*  MARK :- DEVICE MOTION APPROACH STARTS HERE  */
-    
+
     /*
     *  getDeviceMotionValues:interval:values:
     *
@@ -165,289 +167,288 @@ import CoreMotion
     *   attitudeReferenceFrame to determine this. You can access the retrieved values either by a
     *   Trailing Closure or through a Delegate.
     */
-    public func getDeviceMotionObject (interval: NSTimeInterval = 0.1, values: ((deviceMotion: CMDeviceMotion) -> ())? ) {
-        
-        if manager.deviceMotionAvailable{
+    open func getDeviceMotionObject (_ interval: TimeInterval = 0.1, values: ((_ deviceMotion: CMDeviceMotion) -> ())? ) {
+
+        if manager.isDeviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdates(to: OperationQueue()){
                 (data, error) in
-                
-                if let isError = error{
-                    NSLog("Error: %@", isError)
+
+                if error != nil {
+                    print("Error: %@", error)
                 }
-                if values != nil{
-                    values!(deviceMotion: data!)
+                if values != nil {
+                    values!(data!)
                 }
                 self.delegate?.retrieveDeviceMotionObject!(data!)
             }
-            
+
         } else {
-            NSLog("Device Motion is not available")
+            print("Device Motion is not available")
         }
     }
-    
-    
+
+
     /*
     *   getAccelerationFromDeviceMotion:interval:values:
     *   You can retrieve the processed user accelaration data from the device motion from this method.
     */
-    public func getAccelerationFromDeviceMotion (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double) -> ())? ) {
-        
+    open func getAccelerationFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double) -> ())? ) {
+
         var valX: Double!
         var valY: Double!
         var valZ: Double!
-        if manager.deviceMotionAvailable{
+        if manager.isDeviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdates(to: OperationQueue()){
                 (data, error) in
-                
-                if let isError = error{
-                    NSLog("Error: %@", isError)
+
+                if error != nil {
+                    print("Error: %@", error)
                 }
                 valX = data!.userAcceleration.x
                 valY = data!.userAcceleration.y
                 valZ = data!.userAcceleration.z
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ)
+
+                if values != nil {
+                    values!(valX, valY, valZ)
                 }
-                
+
                 self.delegate?.getAccelerationValFromDeviceMotion!(valX, y: valY, z: valZ)
             }
-            
+
         } else {
-            NSLog("Device Motion is unavailable")
+            print("Device Motion is unavailable")
         }
     }
-    
+
     /*
     *   getGravityAccelerationFromDeviceMotion:interval:values:
     *   You can retrieve the processed gravitational accelaration data from the device motion from this
     *   method.
     */
-    public func getGravityAccelerationFromDeviceMotion (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double) -> ())? ) {
-        
+    open func getGravityAccelerationFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double) -> ())? ) {
+
         var valX: Double!
         var valY: Double!
         var valZ: Double!
-        if manager.deviceMotionAvailable{
+        if manager.isDeviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdates(to: OperationQueue()){
                 (data, error) in
-                
-                if let isError = error{
-                    NSLog("Error: %@", isError)
+
+                if error != nil {
+                    print("Error: %@", error)
                 }
                 valX = data!.gravity.x
                 valY = data!.gravity.y
                 valZ = data!.gravity.z
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ)
+
+                if values != nil {
+                    values!(valX, valY, valZ)
                 }
-                
-                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
+
+//                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
                 self.delegate?.getGravityAccelerationValFromDeviceMotion!(valX, y: valY, z: valZ)
             }
-            
+
         } else {
-            NSLog("Device Motion is not available")
+            print("Device Motion is not available")
         }
     }
-    
-    
+
+
     /*
     *   getAttitudeFromDeviceMotion:interval:values:
     *   You can retrieve the processed attitude data from the device motion from this
     *   method.
     */
-    public func getAttitudeFromDeviceMotion (interval: NSTimeInterval = 0.1, values: ((attitude: CMAttitude) -> ())? ) {
-        
-        if manager.deviceMotionAvailable{
+    open func getAttitudeFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ attitude: CMAttitude) -> ())? ) {
+
+        if manager.isDeviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdates(to: OperationQueue()){
                  (data, error) in
-                
-                if let isError = error{
-                    NSLog("Error: %@", isError)
+
+                if error != nil {
+                    print("Error: %@", error)
                 }
-                if values != nil{
-                    values!(attitude: data!.attitude)
+                if values != nil {
+                    values!(data!.attitude)
                 }
-                
+
                 self.delegate?.getAttitudeFromDeviceMotion!(data!.attitude)
             }
-            
+
         } else {
-            NSLog("Device Motion is not available")
+            print("Device Motion is not available")
         }
     }
-    
+
     /*
     *   getRotationRateFromDeviceMotion:interval:values:
     *   You can retrieve the processed rotation data from the device motion from this
     *   method.
     */
-    public func getRotationRateFromDeviceMotion (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double) -> ())? ) {
-        
+    open func getRotationRateFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double) -> ())? ) {
+
         var valX: Double!
         var valY: Double!
         var valZ: Double!
-        if manager.deviceMotionAvailable{
+        if manager.isDeviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdates(to: OperationQueue()){
                  (data, error) in
-                
-                if let isError = error{
-                    NSLog("Error: %@", isError)
+
+                if error != nil {
+                    print("Error: %@", error)
                 }
                 valX = data!.rotationRate.x
                 valY = data!.rotationRate.y
                 valZ = data!.rotationRate.z
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ)
+
+                if values != nil {
+                    values!(valX, valY, valZ)
                 }
-                
-                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
+
+//                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
                 self.delegate?.getRotationRateFromDeviceMotion!(valX, y: valY, z: valZ)
             }
-            
+
         } else {
-            NSLog("Device Motion is not available")
+            print("Device Motion is not available")
         }
     }
-    
-    
+
+
     /*
     *   getMagneticFieldFromDeviceMotion:interval:values:
     *   You can retrieve the processed magnetic field data from the device motion from this
     *   method.
     */
-    public func getMagneticFieldFromDeviceMotion (interval: NSTimeInterval = 0.1, values: ((x:Double, y:Double, z:Double, accuracy: Int32) -> ())? ) {
-        
+    open func getMagneticFieldFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ x:Double, _ y:Double, _ z:Double, _ accuracy: Int32) -> ())? ) {
+
         var valX: Double!
         var valY: Double!
         var valZ: Double!
         var valAccuracy: Int32!
-        if manager.deviceMotionAvailable{
+        if manager.isDeviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdatesToQueue(NSOperationQueue()){
+            manager.startDeviceMotionUpdates(to: OperationQueue()){
                  (data, error) in
-                
-                if let isError = error{
-                    NSLog("Error: %@", isError)
+
+                if error != nil {
+                    print("Error: %@", error)
                 }
                 valX = data!.magneticField.field.x
                 valY = data!.magneticField.field.y
                 valZ = data!.magneticField.field.z
                 valAccuracy = data!.magneticField.accuracy.rawValue
-                
-                if values != nil{
-                    values!(x: valX, y: valY, z: valZ, accuracy: valAccuracy)
+
+                if values != nil {
+                    values!(valX, valY, valZ, valAccuracy)
                 }
-                
+
                 self.delegate?.getMagneticFieldFromDeviceMotion!(valX, y: valY, z: valZ)
             }
-            
+
         } else {
-            NSLog("Device Motion is not available")
+            print("Device Motion is not available")
         }
     }
-    
+
     /*  MARK :- DEVICE MOTION APPROACH ENDS HERE    */
-    
-    
+
+
     /*
     *   From the methods hereafter, the sensor values could be retrieved at
     *   a particular instant, whenever needed, through a trailing closure.
     */
-    
+
     /*  MARK :- INSTANTANIOUS METHODS START HERE  */
-    
-    public func getAccelerationAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+
+    open func getAccelerationAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
         self.getAccelerationFromDeviceMotion(0.5) { (x, y, z) -> () in
-            values(x: x,y: y,z: z)
+            values(x, y, z)
             self.stopDeviceMotionUpdates()
         }
     }
-    
-    public func getGravitationalAccelerationAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+
+    open func getGravitationalAccelerationAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
         self.getGravityAccelerationFromDeviceMotion(0.5) { (x, y, z) -> () in
-            values(x: x,y: y,z: z)
+            values(x, y, z)
             self.stopDeviceMotionUpdates()
         }
     }
-    
-    public func getAttitudeAtCurrentInstant (values: (attitude: CMAttitude) -> ()){
+
+    open func getAttitudeAtCurrentInstant (_ values: @escaping (_ attitude: CMAttitude) -> ()){
         self.getAttitudeFromDeviceMotion(0.5) { (attitude) -> () in
-            values(attitude: attitude)
+            values(attitude)
             self.stopDeviceMotionUpdates()
         }
-    
     }
-    
-    public func getMageticFieldAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+
+    open func getMageticFieldAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
         self.getMagneticFieldFromDeviceMotion(0.5) { (x, y, z, accuracy) -> () in
-            values(x: x,y: y,z: z)
+            values(x, y, z)
             self.stopDeviceMotionUpdates()
         }
     }
-    
-    public func getGyroValuesAtCurrentInstant (values: (x:Double, y:Double, z:Double) -> ()){
+
+    open func getGyroValuesAtCurrentInstant (_ values: @escaping (_ x:Double, _ y:Double, _ z:Double) -> ()){
         self.getRotationRateFromDeviceMotion(0.5) { (x, y, z) -> () in
-            values(x: x,y: y,z: z)
+            values(x, y, z)
             self.stopDeviceMotionUpdates()
         }
     }
-    
+
     /*  MARK :- INSTANTANIOUS METHODS END HERE  */
-    
-    
-    
+
+
+
     /*
     *  stopAccelerometerUpdates
     *
     *  Discussion:
     *   Stop accelerometer updates.
     */
-    public func stopAccelerometerUpdates(){
+    open func stopAccelerometerUpdates(){
         self.manager.stopAccelerometerUpdates()
-        NSLog("Accelaration Updates Status - Stopped")
+        print("Accelaration Updates Status - Stopped")
     }
-    
+
     /*
     *  stopGyroUpdates
     *
     *  Discussion:
     *   Stops gyro updates.
     */
-    public func stopGyroUpdates(){
+    open func stopGyroUpdates(){
         self.manager.stopGyroUpdates()
-        NSLog("Gyroscope Updates Status - Stopped")
+        print("Gyroscope Updates Status - Stopped")
     }
-    
+
     /*
     *  stopDeviceMotionUpdates
     *
     *  Discussion:
     *   Stops device motion updates.
     */
-    public func stopDeviceMotionUpdates() {
+    open func stopDeviceMotionUpdates() {
         self.manager.stopDeviceMotionUpdates()
-        NSLog("Device Motion Updates Status - Stopped")
+        print("Device Motion Updates Status - Stopped")
     }
-    
+
     /*
     *  stopMagnetometerUpdates
     *
     *  Discussion:
     *   Stops magnetometer updates.
     */
-    @available(iOS, introduced=5.0)
-    public func stopmagnetometerUpdates() {
+    @available(iOS, introduced: 5.0)
+    open func stopmagnetometerUpdates() {
         self.manager.stopMagnetometerUpdates()
-        NSLog("Magnetometer Updates Status - Stopped")
+        print("Magnetometer Updates Status - Stopped")
     }
-    
+
 }
