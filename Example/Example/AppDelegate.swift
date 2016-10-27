@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()
         }
-        
+
         return coordinator
     }()
 
@@ -108,4 +108,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
