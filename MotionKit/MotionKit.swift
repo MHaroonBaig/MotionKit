@@ -15,16 +15,16 @@ import CoreMotion
 //_______________________________________________________________________________________________________________
 // this helps retrieve values from the sensors.
 @objc protocol MotionKitDelegate {
-    @objc optional  func retrieveAccelerometerValues (_ x: Double, y:Double, z:Double, absoluteValue: Double)
-    @objc optional  func retrieveGyroscopeValues     (_ x: Double, y:Double, z:Double, absoluteValue: Double)
-    @objc optional  func retrieveDeviceMotionObject  (_ deviceMotion: CMDeviceMotion)
-    @objc optional  func retrieveMagnetometerValues  (_ x: Double, y:Double, z:Double, absoluteValue: Double)
+    @objc optional func retrieveAccelerometerValues (_ x: Double, y:Double, z:Double, absoluteValue: Double)
+    @objc optional func retrieveGyroscopeValues     (_ x: Double, y:Double, z:Double, absoluteValue: Double)
+    @objc optional func retrieveDeviceMotionObject  (_ deviceMotion: CMDeviceMotion)
+    @objc optional func retrieveMagnetometerValues  (_ x: Double, y:Double, z:Double, absoluteValue: Double)
 
-    @objc optional  func getAccelerationValFromDeviceMotion        (_ x: Double, y:Double, z:Double)
-    @objc optional  func getGravityAccelerationValFromDeviceMotion (_ x: Double, y:Double, z:Double)
-    @objc optional  func getRotationRateFromDeviceMotion           (_ x: Double, y:Double, z:Double)
-    @objc optional  func getMagneticFieldFromDeviceMotion          (_ x: Double, y:Double, z:Double)
-    @objc optional  func getAttitudeFromDeviceMotion               (_ attitude: CMAttitude)
+    @objc optional func getAccelerationValFromDeviceMotion        (_ x: Double, y:Double, z:Double)
+    @objc optional func getGravityAccelerationValFromDeviceMotion (_ x: Double, y:Double, z:Double)
+    @objc optional func getRotationRateFromDeviceMotion           (_ x: Double, y:Double, z:Double)
+    @objc optional func getMagneticFieldFromDeviceMotion          (_ x: Double, y:Double, z:Double)
+    @objc optional func getAttitudeFromDeviceMotion               (_ attitude: CMAttitude)
 }
 
 
@@ -39,7 +39,7 @@ open class MotionKit {
      *  Discussion:
      *   Initialises the MotionKit class and throw a Log with a timestamp.
      */
-    public init(){
+    public init() {
         print("MotionKit has been initialised successfully")
     }
 
@@ -69,7 +69,7 @@ open class MotionKit {
                 valY = data?.acceleration.y
                 valZ = data?.acceleration.z
 
-                if values != nil{
+                if values != nil {
                     values!(valX, valY, valZ)
                 }
                 let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
@@ -95,7 +95,7 @@ open class MotionKit {
         var valX: Double!
         var valY: Double!
         var valZ: Double!
-        if manager.isGyroAvailable{
+        if manager.isGyroAvailable {
             manager.gyroUpdateInterval = interval
             manager.startGyroUpdates(to: OperationQueue()) {
                 (data: CMGyroData?, error: Error?) in
@@ -107,7 +107,7 @@ open class MotionKit {
                 valY = data?.rotationRate.y
                 valZ = data?.rotationRate.z
 
-                if values != nil{
+                if values != nil {
                     values!(valX, valY, valZ)
                 }
                 let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
@@ -144,7 +144,7 @@ open class MotionKit {
                 valY = data?.magneticField.y
                 valZ = data?.magneticField.z
 
-                if values != nil{
+                if values != nil {
                     values!(valX, valY, valZ)
                 }
                 let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
@@ -169,7 +169,7 @@ open class MotionKit {
      */
     open func getDeviceMotionObject (_ interval: TimeInterval = 0.1, values: ((_ deviceMotion: CMDeviceMotion) -> ())? ) {
 
-        if manager.isDeviceMotionAvailable{
+        if manager.isDeviceMotionAvailable {
             manager.deviceMotionUpdateInterval = interval
             manager.startDeviceMotionUpdates(to: OperationQueue()) {
                 (data: CMDeviceMotion?, error: Error?) in
@@ -177,7 +177,7 @@ open class MotionKit {
                 if let isError = error{
                     print("Error: \(isError)")
                 }
-                if values != nil{
+                if values != nil {
                     values!(data!)
                 }
                 self.delegate?.retrieveDeviceMotionObject!(data!)
@@ -198,7 +198,7 @@ open class MotionKit {
         var valX: Double!
         var valY: Double!
         var valZ: Double!
-        if manager.isDeviceMotionAvailable{
+        if manager.isDeviceMotionAvailable {
             manager.deviceMotionUpdateInterval = interval
             manager.startDeviceMotionUpdates(to: OperationQueue()) {
                 (data: CMDeviceMotion?, error: Error?) in
@@ -210,7 +210,7 @@ open class MotionKit {
                 valY = data?.userAcceleration.y
                 valZ = data?.userAcceleration.z
 
-                if values != nil{
+                if values != nil {
                     values!(valX, valY, valZ)
                 }
 
@@ -232,7 +232,7 @@ open class MotionKit {
         var valX: Double!
         var valY: Double!
         var valZ: Double!
-        if manager.isDeviceMotionAvailable{
+        if manager.isDeviceMotionAvailable {
             manager.deviceMotionUpdateInterval = interval
             manager.startDeviceMotionUpdates(to: OperationQueue()) {
                 (data: CMDeviceMotion?, error: Error?) in
@@ -244,7 +244,7 @@ open class MotionKit {
                 valY = data?.gravity.y
                 valZ = data?.gravity.z
 
-                if values != nil{
+                if values != nil {
                     values!(valX, valY, valZ)
                 }
 
@@ -264,7 +264,7 @@ open class MotionKit {
      */
     open func getAttitudeFromDeviceMotion (_ interval: TimeInterval = 0.1, values: ((_ attitude: CMAttitude) -> ())? ) {
 
-        if manager.isDeviceMotionAvailable{
+        if manager.isDeviceMotionAvailable {
             manager.deviceMotionUpdateInterval = interval
             manager.startDeviceMotionUpdates(to: OperationQueue()) {
                 (data: CMDeviceMotion?, error: Error?) in
@@ -272,7 +272,7 @@ open class MotionKit {
                 if let isError = error{
                     print("Error: \(isError)")
                 }
-                if values != nil{
+                if values != nil {
                     values!((data?.attitude)!)
                 }
 
@@ -294,7 +294,7 @@ open class MotionKit {
         var valX: Double!
         var valY: Double!
         var valZ: Double!
-        if manager.isDeviceMotionAvailable{
+        if manager.isDeviceMotionAvailable {
             manager.deviceMotionUpdateInterval = interval
             manager.startDeviceMotionUpdates(to: OperationQueue()) {
                 (data: CMDeviceMotion?, error: Error?) in
@@ -306,7 +306,7 @@ open class MotionKit {
                 valY = data?.rotationRate.y
                 valZ = data?.rotationRate.z
 
-                if values != nil{
+                if values != nil {
                     values!(valX, valY, valZ)
                 }
 
@@ -330,7 +330,7 @@ open class MotionKit {
         var valY: Double!
         var valZ: Double!
         var valAccuracy: Int32!
-        if manager.isDeviceMotionAvailable{
+        if manager.isDeviceMotionAvailable {
             manager.deviceMotionUpdateInterval = interval
             manager.startDeviceMotionUpdates(to: OperationQueue()) {
                 (data: CMDeviceMotion?, error: Error?) in
@@ -344,7 +344,7 @@ open class MotionKit {
                 valAccuracy = data?.magneticField.accuracy.rawValue
 
 
-                if values != nil{
+                if values != nil {
                     values!(valX, valY, valZ, valAccuracy)
                 }
 
