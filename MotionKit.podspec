@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'MotionKit'
-  s.version = '0.9.0'
+  s.version = '0.9.1'
   s.license = 'MIT'
   s.summary = 'CoreMotion Made insanely simple'
   s.homepage = 'https://github.com/MHaroonBaig/MotionKit'
