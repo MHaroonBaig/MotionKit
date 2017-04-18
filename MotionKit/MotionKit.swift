@@ -31,7 +31,7 @@ import CoreMotion
 open class MotionKit {
 
     let manager = CMMotionManager()
-    var delegate: MotionKitDelegate?
+    open var delegate: MotionKitDelegate?
 
     /*
      *  init:void:
@@ -41,6 +41,14 @@ open class MotionKit {
      */
     public init() {
         print("MotionKit has been initialised successfully")
+    }
+
+    deinit {
+        delegate = nil
+        manager.stopAccelerometerUpdates()
+        manager.stopGyroUpdates()
+        manager.stopMagnetometerUpdates()
+        manager.stopDeviceMotionUpdates()
     }
 
     /*
@@ -446,7 +454,7 @@ open class MotionKit {
      *   Stops magnetometer updates.
      */
     @available(iOS, introduced: 5.0)
-    open func stopmagnetometerUpdates() {
+    open func stopMagnetometerUpdates() {
         self.manager.stopMagnetometerUpdates()
         print("Magnetometer Updates Status - Stopped")
     }
