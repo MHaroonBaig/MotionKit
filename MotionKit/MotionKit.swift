@@ -62,7 +62,7 @@ import CoreMotion
                 (data, error) in
                 
                 if let isError = error {
-                    NSLog("Error: %@", isError)
+                    print("Error: %@", isError)
                 }
                 valX = data!.acceleration.x
                 valY = data!.acceleration.y
@@ -99,7 +99,7 @@ import CoreMotion
                 (data, error) in
                 
                 if let isError = error{
-                    NSLog("Error: %@", isError)
+                    print("Error: %@", isError)
                 }
                 valX = data!.rotationRate.x
                 valY = data!.rotationRate.y
@@ -136,7 +136,7 @@ import CoreMotion
                 (data, error) in
                 
                 if let isError = error{
-                    NSLog("Error: %@", isError)
+                    print("Error: %@", isError)
                 }
                 valX = data!.magneticField.x
                 valY = data!.magneticField.y
@@ -173,7 +173,7 @@ import CoreMotion
                 (data, error) in
                 
                 if let isError = error{
-                    NSLog("Error: %@", isError)
+                    print("Error: %@", isError)
                 }
                 if values != nil{
                     values!(data!)
@@ -202,7 +202,7 @@ import CoreMotion
                 (data, error) in
                 
                 if let isError = error{
-                    NSLog("Error: %@", isError)
+                    print("Error: %@", isError)
                 }
                 valX = data!.userAcceleration.x
                 valY = data!.userAcceleration.y
@@ -236,7 +236,7 @@ import CoreMotion
                 (data, error) in
                 
                 if let isError = error{
-                    NSLog("Error: %@", isError)
+                    print("Error: %@", isError)
                 }
                 valX = data!.gravity.x
                 valY = data!.gravity.y
@@ -269,7 +269,7 @@ import CoreMotion
                  (data, error) in
                 
                 if let isError = error{
-                    NSLog("Error: %@", isError)
+                    print("Error: %@", isError)
                 }
                 if values != nil{
                     values!(data!.attitude)
@@ -299,7 +299,7 @@ import CoreMotion
                  (data, error) in
                 
                 if let isError = error{
-                    NSLog("Error: %@", isError)
+                    print("Error: %@", isError)
                 }
                 valX = data!.rotationRate.x
                 valY = data!.rotationRate.y
@@ -336,7 +336,7 @@ import CoreMotion
                  (data, error) in
                 
                 if let isError = error{
-                    NSLog("Error: %@", isError)
+                    print("Error: %@", isError)
                 }
                 valX = data!.magneticField.field.x
                 valY = data!.magneticField.field.y
