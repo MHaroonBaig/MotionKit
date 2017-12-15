@@ -1,5 +1,5 @@
 PODS:
-  - MotionKit (0.9.1)
+  - MotionKit (0.9.2)
 
 DEPENDENCIES:
   - MotionKit (from `..`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  MotionKit: 46724c6e76be1f549c4aa32aca4677b883f92710
+  MotionKit: fd53eee438d186b32f1a1023336642d325976c6d
 
 PODFILE CHECKSUM: ee8b8d098fe2863c7866a13a17f6fe7fbcc1f527
 
